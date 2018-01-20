@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { startBitCoinFetch } from '../actions/coinsData';
 
 class MainPage extends Component {
-  redner() {
+  componentDidMount() {
+    this.props.startBitCoinFetch();
+  }
+
+  render() {
     return (
       <div className="box-layout">
         <div className="box-layout__box">
@@ -9,8 +15,12 @@ class MainPage extends Component {
           <p>Tag line for app.</p>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default MainPage;
+const mapDispatchToProps = dispatch => ({
+  startBitCoinFetch: () => dispatch(startBitCoinFetch()),
+});
+
+export default connect(undefined, mapDispatchToProps)(MainPage);
