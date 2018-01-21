@@ -7,13 +7,10 @@ import uuid from 'uuid';
 class MainPage extends Component {
   render() {
     const { rates } = this.props;
-    if (!rates) {
-      return null;
-    }
     return (
       <div className="box-layout">
         <div className="box-layout__box">
-          {rates.map( (rate) => {
+          {rates && rates.map( (rate) => {
             return <CoinItem  key={rate.id} coin={rate.name} rate={rate.price_usd}/>
           })
         }
