@@ -8,7 +8,7 @@ export default (state = INITIAL_STATE, action) => {
     case FETCH_COIN:
       return {
         ...state,
-        rates: _.mapKeys(action.rates.data, 'id'),
+        rates: action.rates.data,
       };
     default:
       return state;
