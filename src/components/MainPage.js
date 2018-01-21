@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { startBitCoinFetch } from '../actions/coinsData';
+import { startCoinFetch } from '../actions/coinsData';
+import CoinItem from './CoinItem';
+import uuid from 'uuid';
 
 class MainPage extends Component {
-  componentDidMount() {
-    this.props.startBitCoinFetch();
-  }
+  // coinRender = () => {
+  //   if (!this.props.BTC_rate) {
+  //     return <div>Loading</div>
+  //   } else {
+  //     return <CoinItem
+  //       key={uuid()}
+  //       coinRate={this.props.BTC_rate}
+  //     />
+  //   }
+  // }
 
   render() {
+    const { rates } = this.props;
     return (
       <div className="box-layout">
         <div className="box-layout__box">
-          <h1 className="box-layout__title">Boilerplate</h1>
-          <p>Tag line for app.</p>
+          <CoinItem key={uuid()} coin={rates.bitcoin.name} rate={rates.bitcoin.price_usd}/>
+          <CoinItem key={uuid()} coin={rates.ethereum.name} rate={rates.ethereum.price_usd}/>
         </div>
       </div>
     );
@@ -20,7 +30,11 @@ class MainPage extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  startBitCoinFetch: () => dispatch(startBitCoinFetch()),
+  startCoinFetch: () => dispatch(startCoinFetch()),
 });
 
-export default connect(undefined, mapDispatchToProps)(MainPage);
+const mapStateToProps = state => ({
+  rates: state.coinsData.rates,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

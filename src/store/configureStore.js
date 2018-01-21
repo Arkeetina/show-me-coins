@@ -1,16 +1,15 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import coinDataReducer from '../reducers/coinData';
+import coinsDataReducer from '../reducers/coinsData';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export default () => {
   const store = createStore(
     combineReducers({
-      coinData: coinDataReducer,
+      coinsData: coinsDataReducer,
     }),
     composeEnhancers(applyMiddleware(thunk))
   );
-
   return store;
 };

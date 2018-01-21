@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import 'normalize.css/normalize.css';
+
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import 'normalize.css/normalize.css';
+import LoadingPage from './components/LoadingPage';
+import { startCoinFetch } from './actions/coinsData';
 import './styles/styles.scss';
-import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
 
@@ -15,7 +17,17 @@ const jsx = (
   </Provider>
 );
 
+let hasRendered = false;
 
-ReactDOM.render(jsx, document.getElementById('app'));
+const renderApp = () => {
+  if (!hasRendered) {
+    ReactDOM.render(jsx, document.getElementById('app'));
+    hasRendered = true;
+  }
+};
 
- 
+store.dispatch(startCoinFetch()).then(() => {
+  renderApp();
+});
+
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));

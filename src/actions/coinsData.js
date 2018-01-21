@@ -1,21 +1,21 @@
 import axios from 'axios';
+import { FETCH_COIN } from './types';
 
-const ROOT_URl = 'https://rest.coinapi.io';
-const API_KEY = '018743E6-9486-4FE1-A8CD-B64784A7710C';
+const ROOT_URL = 'https://api.coinmarketcap.com/v1/ticker/?convert=USD&limit=10';
 
-export const fetchBitCoinData = () => ({
-  type: 'FETCH_BITCOIN',
+export const fetchCoinData = rates => ({
+  type: FETCH_COIN,
+  rates,
 });
 
-export const startBitCoinFetch = () => {
+export const startCoinFetch = () => {
   return (dispatch) => {
     return axios({
       method: 'get',
-      url: `${ROOT_URl}/v1/exchangerate/BTC/USD?`,
-      headers: { 'X-CoinAPI-Key': API_KEY },
+      url: `${ROOT_URL}`,
     })
       .then((response) => {
-        dispatch(fetchBitCoinData(response));
+        dispatch(fetchCoinData(response));
         console.log(response);
       })
       .catch((error) => {
