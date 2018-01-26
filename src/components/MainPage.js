@@ -1,31 +1,14 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { startCoinFetch } from '../actions/coinsData';
-import CoinItem from './CoinItem';
-import uuid from 'uuid';
+import React from 'react';
+import CoinsListFilter from './CoinsListFilter';
+import CoinsList from './CoinsList';
 
-class MainPage extends Component {
-  render() {
-    const { rates } = this.props;
-    return (
-      <div className="box-layout">
-        <div className="box-layout__box">
-          {rates && rates.map( (rate) => {
-            return <CoinItem  key={rate.id} coin={rate.name} rate={rate.price_usd}/>
-          })
-        }
-        </div>
-      </div>
-    );
-  }
-}
+const MainPage = () => (
+  <div className="box-layout">
+    <div className="box-layout__box">
+      <CoinsListFilter />
+      <CoinsList />
+    </div>
+  </div>
+);
 
-const mapDispatchToProps = dispatch => ({
-  startCoinFetch: () => dispatch(startCoinFetch()),
-});
-
-const mapStateToProps = state => ({
-  rates: state.coinsData.rates,
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default MainPage;
