@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CoinsItem from './CoinsItem';
-import sortCoins from '../selectors/coins';
+import sortSelector from '../selectors/sortSelector';
 
 
 const CoinsList = props => (
@@ -14,7 +14,7 @@ const CoinsList = props => (
 
 const mapStateToProps = (state) => {
   return {
-    rates: sortCoins(state.coinsData, state.coinsFilters),
+    rates: sortSelector(state.coinsData, state.coinsFilters),
   };
 };
 

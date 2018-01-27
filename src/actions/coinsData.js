@@ -16,7 +16,6 @@ export const startCoinFetch = () => {
     })
       .then((response) => {
         dispatch(fetchCoinData(response));
-        console.log(response);
       })
       .catch((error) => {
         console.log(error);
