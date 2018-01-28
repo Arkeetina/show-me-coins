@@ -1,3 +1,5 @@
+// import { sortByAmountDescending } from "../actions/coinsFilters";
+
 export default (coins, { text, sortBy }) => {
   return coins.filter((coin) => {
     const textMatch = coin.name.toLowerCase().includes(text.toLowerCase());
@@ -6,12 +8,20 @@ export default (coins, { text, sortBy }) => {
   }).sort((a, b) => {
     if (sortBy === 'nameAscending') {
       return a.name > b.name ? 1 : -1;
-    } else if (sortBy === 'amountAscending') {
-      return +a.price_usd < +b.price_usd ? 1 : -1;
     } else if (sortBy === 'nameDescending') {
       return a.name < b.name ? 1 : -1;
-    } else if (sortBy === 'amountDescending') {
+    } else if (sortBy === 'priceUsdAscending') {
+      return +a.price_usd < +b.price_usd ? 1 : -1;
+    } else if (sortBy === 'priceUsdDescending') {
       return +a.price_usd > +b.price_usd ? 1 : -1;
+    } else if (sortBy === 'marketCapAscending') {
+      return +a.market_cap_usd < +b.market_cap_usd ? 1 : -1;
+    } else if (sortBy === 'marketCapDescending') {
+      return +a.market_cap_usd > +b.market_cap_usd ? 1 : -1;
+    } else if (sortBy === 'perChangeAscending') {
+      return +a.percent_change_24h < +b.percent_change_24h ? 1 : -1;
+    } else if (sortBy === 'perChangeDescending') {
+      return +a.percent_change_24h > +b.percent_change_24h ? 1 : -1;
     }
   });
 };

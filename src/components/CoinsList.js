@@ -5,11 +5,11 @@ import sortSelector from '../selectors/sortSelector';
 
 
 const CoinsList = props => (
-  <div className="content-container">
+  <tbody>
     {props.rates && props.rates.map((rate) => {
         return <CoinsItem key={rate.id} {...rate} />;
     }) }
-  </div>
+  </tbody>
 );
 
 const mapStateToProps = (state) => {
