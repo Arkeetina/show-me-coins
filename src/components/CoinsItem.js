@@ -12,8 +12,8 @@ const CoinItem = ({
     <td>{name}</td>
     <td>{price_usd}</td>
     <td>{market_cap_usd}</td>
-    {(+percent_change_24h > 0) && <span className="green">{percent_change_24h}</span>}
-    {(+percent_change_24h < 0) && <span className="red">{percent_change_24h}</span>}
+    {(+percent_change_24h > 0) && <td className="green">{percent_change_24h}</td>}
+    {(+percent_change_24h < 0) && <td className="red">{percent_change_24h}</td>}
   </tr>
 );
 
