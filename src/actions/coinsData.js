@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_COIN, SHOW_HOVER_BOX } from './types';
+import { FETCH_COIN } from './types';
 
 const ROOT_URL = 'https://api.coinmarketcap.com/v1/ticker/?convert=USD&limit=10';
 
