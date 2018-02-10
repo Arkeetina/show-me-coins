@@ -1,26 +1,26 @@
 import {
-  SHOW_HOVER_BOX,
-  HIDE_HOVER_BOX,
+  SHOW_TOOLTIP,
+  HIDE_TOOLTIP,
 } from '../actions/types';
 
 const INITIAL_COIN_UI_STATE = {
-  hoverBoxisHidden: true,
+  tooltipisHidden: true,
   text: '',
 };
 
 export default (state = INITIAL_COIN_UI_STATE, action) => {
   switch (action.type) {
-    case SHOW_HOVER_BOX:
+    case SHOW_TOOLTIP:
       return {
         ...state,
-        hoverBoxisHidden: false,
+        tooltipisHidden: false,
         text: action.symbol,
         offSetTop: action.textOffSetTop,
       };
-    case HIDE_HOVER_BOX:
+    case HIDE_TOOLTIP:
       return {
         ...state,
-        hoverBoxisHidden: true,
+        tooltipisHidden: true,
         text: '',
       };
     default:

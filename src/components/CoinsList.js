@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import CoinsItem from './CoinsItem';
 import sortSelector from '../selectors/sortSelector';
-import { showHoverBox, hideHoverBox } from '../actions/coinsUI';
+import { showTooltip, hideTooltip } from '../actions/coinsUI';
 
 
 class CoinsList extends Component {
@@ -17,11 +17,11 @@ class CoinsList extends Component {
         return symbol;
       }
     })
-    this.props.showHoverBox(symbol, textOffSetTop);
+    this.props.showTooltip(symbol, textOffSetTop);
   }
 
   onMouseOut = () => {
-    this.props.hideHoverBox();
+    this.props.hideTooltip();
   }
 
   render() {
@@ -45,14 +45,14 @@ class CoinsList extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  showHoverBox: (symbol, textOffSetTop) => dispatch(showHoverBox(symbol, textOffSetTop)),
-  hideHoverBox: () => dispatch(hideHoverBox()),
+  showTooltip: (symbol, textOffSetTop) => dispatch(showTooltip(symbol, textOffSetTop)),
+  hideTooltip: () => dispatch(hideTooltip()),
 });
 
 const mapStateToProps = (state) => {
   return {
     rates: sortSelector(state.coinsData, state.coinsFilters),
-    hoverBoxisHidden: state.coinsUI.hoverBoxisHidden,
+    tooltipisHidden: state.coinsUI.tooltipisHidden,
   };
 };
 

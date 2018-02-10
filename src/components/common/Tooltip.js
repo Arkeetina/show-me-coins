@@ -9,7 +9,7 @@ const Tooltip = ({ isHidden, offSetTop, text }) => {
     textAlign: 'center',
     width: '10rem',
     top: `${offSetTop + 145}px`,
-    transition: '1s ease-in-out',
+    transition: '0.3s ease-in-out',
   };
 
   return (

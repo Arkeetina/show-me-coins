@@ -1,11 +1,11 @@
-import { SHOW_HOVER_BOX, HIDE_HOVER_BOX } from './types';
+import { SHOW_TOOLTIP, HIDE_TOOLTIP } from './types';
 
-export const showHoverBox = (symbol, textOffSetTop) => ({
-  type: SHOW_HOVER_BOX,
+export const showTooltip = (symbol, textOffSetTop) => ({
+  type: SHOW_TOOLTIP,
   symbol,
   textOffSetTop,
 });
 
-export const hideHoverBox = () => ({
-  type: HIDE_HOVER_BOX,
+export const hideTooltip = () => ({
+  type: HIDE_TOOLTIP,
 });

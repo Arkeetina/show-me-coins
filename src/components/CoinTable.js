@@ -11,7 +11,7 @@ const CoinTable = props => (
     <div className="box-layout__box">
       <SearchBar />
       <Tooltip
-        isHidden={props.hoverBoxisHidden}
+        isHidden={props.tooltipisHidden}
         text={props.text}
         offSetTop={props.offSetTop}
       />
@@ -25,7 +25,7 @@ const CoinTable = props => (
 
 const mapStateToProps = (state) => {
   return {
-    hoverBoxisHidden: state.coinsUI.hoverBoxisHidden,
+    tooltipisHidden: state.coinsUI.tooltipisHidden,
     offSetTop: state.coinsUI.offSetTop,
     text: state.coinsUI.text,
   };
