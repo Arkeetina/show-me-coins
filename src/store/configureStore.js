@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import coinsDataReducer from '../reducers/coinsData';
 import coinsFilterReducer from '../reducers/coinsFilters';
+import coinsUIReducer from '../reducers/coinsUI';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -10,6 +11,7 @@ export default () => {
     combineReducers({
       coinsData: coinsDataReducer,
       coinsFilters: coinsFilterReducer,
+      coinsUI: coinsUIReducer,
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

@@ -32,3 +32,16 @@ button {
 .red {
   color: red;
 }
+
+.hover-box {
+  background: fade-out(rgb(155, 154, 154), .15);
+  border-radius: 3px;
+  padding: $s-size $m-size;
+  text-align: center;
+  width: 10rem;
+}
+
+// .connected {
+//   position: element($Target);
+//   transform: translateY(-100%);
+// }
