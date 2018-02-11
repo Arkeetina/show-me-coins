@@ -1,5 +1,7 @@
 // coin data
 export const FETCH_COIN = 'FETCH_COIN';
+export const SHOW_TOOLTIP = 'SHOW_TOOLTIP';
+export const HIDE_TOOLTIP = 'HIDE_TOOLTIP';
 
 // coin filters
 export const SORT_BY_NAME_ASCENDING = 'SORT_BY_NAME_ASCENDING';

@@ -32,6 +32,7 @@ class CoinsListFilter extends Component {
   onSortByPriceUsdDescending = () => {
     this.props.sortByPriceUsdDescending();
   }
+  
 
   // Market Cap
   onSortByMarketCapAscending = () => {
