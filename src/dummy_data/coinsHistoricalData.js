@@ -1,0 +1,147 @@
+const coinsHistoricalData = [{
+  id: 'btc',
+  name: 'bitcoin',
+  historicData: [
+    {
+      year: 2011,
+      monthPrices: [
+        { monthId: 1, price: 24 },
+        // { monthId: 2, price: 5 },
+        { monthId: 3, price: 29 },
+        { monthId: 4, price: 26 },
+        { monthId: 5, price: 24 },
+        { monthId: 6, price: 26 },
+        { monthId: 7, price: 31 },
+        { monthId: 8, price: 28 },
+        { monthId: 9, price: 25 },
+        { monthId: 10, price: 31 },
+        // { monthId: 11, price: 11 },
+        { monthId: 12, price: 3 },
+      ],
+    }, {
+      year: 2012,
+      monthPrices: [
+        { monthId: 1, price: 2 },
+        { monthId: 2, price: 5 },
+        { monthId: 3, price: 29 },
+        { monthId: 4, price: 26 },
+        { monthId: 5, price: 24 },
+        { monthId: 6, price: 26 },
+        { monthId: 7, price: 31 },
+        { monthId: 8, price: 28 },
+        { monthId: 9, price: 25 },
+        { monthId: 10, price: 31 },
+        { monthId: 11, price: 11 },
+        { monthId: 12, price: 3 },
+      ],
+    }, {
+      year: 2013,
+      monthPrices: [
+        { monthId: 1, price: 2 },
+        { monthId: 2, price: 5 },
+        { monthId: 3, price: 29 },
+        { monthId: 4, price: 26 },
+        { monthId: 5, price: 24 },
+        { monthId: 6, price: 26 },
+        { monthId: 7, price: 31 },
+        { monthId: 8, price: 28 },
+        { monthId: 9, price: 25 },
+        { monthId: 10, price: 31 },
+        { monthId: 11, price: 11 },
+        { monthId: 12, price: 3 },
+      ],
+    }, {
+      year: 2014,
+      monthPrices: [
+        { monthId: 1, price: 2 },
+        { monthId: 2, price: 5 },
+        { monthId: 3, price: 29 },
+        { monthId: 4, price: 26 },
+        { monthId: 5, price: 24 },
+        { monthId: 6, price: 26 },
+        { monthId: 7, price: 31 },
+        { monthId: 8, price: 28 },
+        { monthId: 9, price: 25 },
+        { monthId: 10, price: 31 },
+        { monthId: 11, price: 11 },
+        { monthId: 12, price: 3 },
+      ],
+    }, {
+      year: 2015,
+      monthPrices: [
+        { monthId: 1, price: 302 },
+        { monthId: 2, price: 264.32 },
+        { monthId: 3, price: 297.37 },
+        { monthId: 4, price: 261.74 },
+        { monthId: 5, price: 245.87 },
+        { monthId: 6, price: 265.9 },
+        { monthId: 7, price: 313.75 },
+        { monthId: 8, price: 285.61 },
+        { monthId: 9, price: 254.3 },
+        { monthId: 10, price: 325.17 },
+        { monthId: 11, price: 446.81 },
+        { monthId: 12, price: 463.92 },
+      ],
+    }, {
+      year: 2016,
+      monthPrices: [
+        { monthId: 1, price: 455.93 },
+        { monthId: 2, price: 439.84 },
+        { monthId: 3, price: 436.22 },
+        { monthId: 4, price: 466.05 },
+        { monthId: 5, price: 536.65 },
+        { monthId: 6, price: 756.88 },
+        { monthId: 7, price: 688.5 },
+        { monthId: 8, price: 628.26 },
+        { monthId: 9, price: 628.77 },
+        { monthId: 10, price: 720.40 },
+        { monthId: 11, price: 749.1 },
+        { monthId: 12, price: 969.3 },
+      ],
+    }, {
+      year: 2017,
+      monthPrices: [
+        { monthId: 1, price: 1077.4 },
+        { monthId: 2, price: 11085.01 },
+        { monthId: 3, price: 1275.89 },
+        { monthId: 4, price: 1336.9 },
+        { monthId: 5, price: 2567.27 },
+        { monthId: 6, price: 2899.97 },
+        { monthId: 7, price: 2764 },
+        { monthId: 8, price: 4369.98 },
+        { monthId: 9, price: 4780.15 },
+        { monthId: 10, price: 6121.9 },
+        { monthId: 11, price: 10623 },
+        { monthId: 12, price: 19498.63 },
+      ],
+    }, {
+      year: 2018,
+      monthPrices: [
+        { monthId: 1, price: 17163 },
+      ],
+    }],
+}, {
+  id: 'eth',
+  name: 'ethereum',
+  historicData: [{
+    year: 2015,
+    monthPrices: [
+      { monthId: 2, price: 264.32 },
+      { monthId: 4, price: 800 },
+    ],
+  }, {
+    year: 2016,
+    monthPrices: [
+      { monthId: 1, price: 302 },
+      { monthId: 2, price: 264.32 },
+    ],
+  }, {
+    year: 2017,
+    monthPrices: [
+      { monthId: 1, price: 302 },
+      { monthId: 2, price: 264.32 },
+    ],
+  }],
+}];
+
+export default coinsHistoricalData;

@@ -2,8 +2,8 @@ import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
 
 import CoinsItem from './CoinsItem';
-import sortSelector from '../selectors/sortSelector';
-import { showTooltip, hideTooltip } from '../actions/coinsUI';
+import sortSelector from '../../selectors/sortSelector';
+import { showTooltip, hideTooltip } from '../../actions/coinsUI';
 
 
 class CoinsList extends Component {

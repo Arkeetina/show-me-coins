@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import SearchBar from './common/SearchBar';
-import SortButtons from './common/SortButtons';
+import SearchBar from '../common/SearchBar';
+import SortButtons from '../common/SortButtons';
 import {
   sortByNameAscending,
   sortByNameDescending,
@@ -12,7 +12,7 @@ import {
   sortByMarketCapDescending,
   sortByPerChangeAscending,
   sortByPerChangeDescending,
-} from '../actions/coinsFilters';
+} from '../../actions/coinsFilters';
 
 class CoinsListFilter extends Component {
   // Name
