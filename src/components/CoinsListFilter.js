@@ -54,38 +54,36 @@ class CoinsListFilter extends Component {
 
   render() {
     return (
-      <thead>
-        <tr>
-          <th>
-            <span>Name</span>
-            <SortButtons
-              onUpArrowClick={this.onSortByNameAscending}
-              onDownArrowClick={this.onSortByNameDescending}
-            />
-          </th>
-          <th>
-            <span>Price ($)</span>
-            <SortButtons
-              onUpArrowClick={this.onSortByPriceUsdAscending}
-              onDownArrowClick={this.onSortByPriceUsdDescending}
-            />
-          </th>
-          <th>
-            <span>Market Cap ($)</span>
-            <SortButtons
-              onUpArrowClick={this.onSortByMarketCapAscending}
-              onDownArrowClick={this.onSortByMarketCapDescending}
-            />
-          </th>
-          <th>
-            <span>Change (24h)</span>
-            <SortButtons
-              onUpArrowClick={this.onSortByPerChangeAscending}
-              onDownArrowClick={this.onSortByPerChangeDescending}
-            />
-          </th>
-        </tr>
-      </thead>
+      <div className="coin-table-head">
+        <div className="coin-table-head-cell">
+          <span>Name</span>
+          <SortButtons
+            onUpArrowClick={this.onSortByNameAscending}
+            onDownArrowClick={this.onSortByNameDescending}
+          />
+        </div>
+        <div className="coin-table-head-cell">
+          <span>Price ($)</span>
+          <SortButtons
+            onUpArrowClick={this.onSortByPriceUsdAscending}
+            onDownArrowClick={this.onSortByPriceUsdDescending}
+          />
+        </div>
+        <div className="coin-table-head-cell">
+          <span>Market Cap ($)</span>
+          <SortButtons
+            onUpArrowClick={this.onSortByMarketCapAscending}
+            onDownArrowClick={this.onSortByMarketCapDescending}
+          />
+        </div>
+        <div className="coin-table-head-cell">
+          <span>Change (24h)</span>
+          <SortButtons
+            onUpArrowClick={this.onSortByPerChangeAscending}
+            onDownArrowClick={this.onSortByPerChangeDescending}
+          />
+        </div>
+    </div>
     )
   }
 }

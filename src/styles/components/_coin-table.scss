@@ -1,0 +1,44 @@
+.coin-table-container {
+  background: fade-out(white, .15);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  border-radius: 3px;
+  padding: $m-size $m-size;
+  text-align: center;
+  width: 34rem;
+  font-size: $s-size;
+  @media (min-width: $desktop-breakpoint) {
+    width: 60rem;
+    font-size: $m-size;
+  }
+}
+
+.coin-table-head {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+}
+
+.coin-table-head-cell {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  padding: $s-size;
+  @media (min-width: $desktop-breakpoint) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.coin-table-cell {
+  padding: $s-size;
+}
+
+.coin-table-body {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: 0.5rem;
+}
+
+.coin-table-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}

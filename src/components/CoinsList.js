@@ -27,7 +27,7 @@ class CoinsList extends Component {
   render() {
     return (
       <Fragment>
-        <tbody>
+        <div className="coin-table-body">
           {this.props.rates && this.props.rates.map((rate) => {
             return (
               <CoinsItem
@@ -38,7 +38,7 @@ class CoinsList extends Component {
               />
             );
           }) }
-        </tbody>
+        </div>
       </Fragment>
     );
   }

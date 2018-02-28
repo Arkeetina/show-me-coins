@@ -12,14 +12,18 @@ class SortButtons extends Component {
 
   render() {
     return (
-      <span>
-        <a onClick={this.onUpArrowClick}>
-          <i className="fas fa-long-arrow-alt-up"></i>
-        </a>
-        <a onClick={this.onDownArrowClick}>
-          <i className="fas fa-long-arrow-alt-down"></i>
-        </a>
-      </span>
+      <div className="sort-buttons-containter">
+        <button
+          className="sort-button"
+          onClick={this.onUpArrowClick}>
+          <i className="fas fa-long-arrow-alt-up lg"></i>
+        </button>
+        <button
+          className="sort-button"
+          onClick={this.onDownArrowClick}>
+          <i className="fas fa-long-arrow-alt-down lg"></i>
+        </button>
+      </div>
     );
   }
 }

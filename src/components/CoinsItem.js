@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 const CoinItem = ({
@@ -9,24 +9,18 @@ const CoinItem = ({
   onMouseOver,
   onMouseOut,
 }) => (
-  <tr >
-    <td
+  <div className="coin-table-row">
+    <div
+      className="coin-table-cell"
       onMouseOver={onMouseOver}
       onMouseOut={onMouseOut}
     >
       {name}
-    </td>
-    <td>{price_usd}</td>
-    <td>{market_cap_usd}</td>
-    <td className={(+percent_change_24h > 0) ? 'green' : 'red'}>{percent_change_24h}%</td>
-  </tr>
+    </div>
+    <div className="coin-table-cell">{price_usd}</div>
+    <div className="coin-table-cell">{market_cap_usd}</div>
+    <div className={(+percent_change_24h > 0) ? 'coin-table-cell green' : 'coin-table-cell red'}>{percent_change_24h}%</div>
+  </div>
 );
-
-CoinItem.propTypes = {
-  name: PropTypes.string,
-  price_usd: PropTypes.string,
-  market_cap_usd: PropTypes.string,
-  percent_change_24h: PropTypes.string,
-};
 
 export default CoinItem;

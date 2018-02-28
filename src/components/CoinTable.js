@@ -8,17 +8,17 @@ import SearchBar from './common/SearchBar';
 
 const CoinTable = props => (
   <div className="box-layout">
-    <div className="box-layout__box">
+    <div className="coin-table-container">
       <SearchBar />
       <Tooltip
         isHidden={props.tooltipisHidden}
         text={props.text}
         offSetTop={props.offSetTop}
       />
-      <table>
+      <div>
         <CoinsListFilter />
         <CoinsList />
-      </table>
+      </div>
     </div>
   </div>
 );

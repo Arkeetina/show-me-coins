@@ -11,15 +11,16 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: $m-size;
   line-height: 1.6;
+  overflow: scroll;
 }
 
 button {
   cursor: pointer;
 }
 
-// button:disabled {
-//   cursor: default;
-// }
+button:focus {
+  outline:0;
+}
 
 .is-active {
   font-weight: bold;
@@ -40,8 +41,3 @@ button {
   text-align: center;
   width: 10rem;
 }
-
-// .connected {
-//   position: element($Target);
-//   transform: translateY(-100%);
-// }
