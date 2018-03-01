@@ -2,10 +2,13 @@
   align-items: center;
   background: url('/images/bg.jpg');
   background-size: cover;
-  display: flex;
+  display: grid;
+  grid-row-gap: 50px;
+  grid-template-rows: 1fr;
   height: 100vh;
   justify-content: center;
   width: 100vw;
+  overflow: scroll;
 }
 
 .box-layout__box {
