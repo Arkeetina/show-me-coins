@@ -1,19 +1,26 @@
 import React from 'react';
 
-const CgCalculatorResult = (props) => {
-  if (!props.inputedValue) {
+const CgCalculatorResult = ({
+  inputedValue,
+  historicPrice,
+  currentPrice,
+  coinType,
+  monthNumber,
+  yearName,
+}) => {
+  if (!inputedValue) {
     return (
       <p>Please input the value..</p>
     );
   }
 
-  if (!props.historicPrice) {
+  if (!historicPrice) {
     return (
       <p>Please use proper historical price.</p>
     );
   }
 
-  if (!props.currentPrice) {
+  if (!currentPrice) {
     return (
       <p>Unable to access current price.</p>
     );
@@ -22,14 +29,13 @@ const CgCalculatorResult = (props) => {
   return (
     <div>
       <p>
-        If you had invested {props.inputedValue} dollars in {props.coinType} on the highest point
-        on {props.monthNumber},
-        {props.yearName},
-        today you would have: {(props.inputedValue / props.historicPrice) * props.currentPrice} $
+        If you had invested {inputedValue} dollars in {coinType} on the highest point
+        on {monthNumber},
+        {yearName},
+        today you would have: {(inputedValue / historicPrice) * currentPrice} $
       </p>
     </div>
   );
 };
-
 
 export default CgCalculatorResult;
