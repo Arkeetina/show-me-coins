@@ -7,8 +7,6 @@ class SearchBar extends Component {
     this.props.setTextFilter(e.target.value);
   };
 
-  
-
   render() {
     return (
       <div className="input-group__item">
