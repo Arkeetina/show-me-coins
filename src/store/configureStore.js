@@ -17,7 +17,5 @@ export default () => {
     }),
     composeEnhancers(applyMiddleware(thunk))
   );
-  window.store = store;
-  console.log(store);
   return store;
 };

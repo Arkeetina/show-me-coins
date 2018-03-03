@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectCoinType, selectCoinYear, selectCoinMonth, inputValue } from '../../actions/coinsCalculator';
+import { selectCoinType, selectCoinYear, selectCoinMonth, inputValue, showResult } from '../../actions/coinsCalculator';
 import getYearSelector from '../../selectors/getYearSelector';
 import getMonthSelector from '../../selectors/getMonthSelector';
 import getCurrentPriceSelector from '../../selectors/getCurrentPriceSelector';
@@ -29,6 +29,10 @@ class CgCalculatorMain extends Component {
   onChangeValueInput = (event) => {
     const inputedDollarValue = parseInt(event.target.value);
     this.props.inputValue(inputedDollarValue);
+  }
+
+  onClickShowButton = () => {
+    this.props.showResult();
   }
 
   render() {
@@ -60,14 +64,15 @@ class CgCalculatorMain extends Component {
         />
         <p> ..how much money would I have today ? </p>
         <button onClick = {this.onClickShowButton}>SHOW ME HOW MUCH</button>
+        {(this.props.displayResult) &&
         <CgCalculatorResult 
           inputedValue={this.props.inputedValue}
-          currentPrice={getCurrentPriceSelector(this.props.rates, this.props.selectedCoinData.name)}
+          currentPrice={this.props.currentPrice}
           historicPrice={this.props.historicPrice}
           coinType={this.props.selectedCoinData.name}
           monthNumber={this.props.currentMonth}
           yearName={this.props.currentYear}
-        />
+        />}
       </div>
     );
   }
@@ -87,6 +92,7 @@ const mapStateToProps = state => {
     currentPrice: getCurrentPriceSelector(state.coinsData, calculatorData.selectedCoinData.name),
     historicPrice: getHistoricalValueSelector(calculatorData.selectedYearData.monthPrices, calculatorData.selectedMonthData.monthId),
     inputedValue: calculatorData.inputedValue,
+    displayResult: calculatorData.displayResult
   }
 };
 
@@ -95,6 +101,7 @@ const mapDispatchToProps = (dispatch) => ({
   selectCoinYear: (yearName) => dispatch(selectCoinYear(yearName)),
   selectCoinMonth: (monthNumber) => dispatch(selectCoinMonth(monthNumber)),
   inputValue: (inputedDollarValue) => dispatch(inputValue(inputedDollarValue)),
+  showResult: () => dispatch(showResult()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CgCalculatorMain);

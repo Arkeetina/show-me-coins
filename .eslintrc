@@ -13,6 +13,7 @@
     "no-console": [
       "off"
     ],
+    "no-underscore-dangle": 1,
     "no-unused-vars": [
       "error",
       {

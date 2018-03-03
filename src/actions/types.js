@@ -20,3 +20,4 @@ export const SET_COIN_TYPE = 'SET_COIN_TYPE';
 export const SET_COIN_YEAR = 'SET_COIN_YEAR';
 export const SET_COIN_MONTH = 'SET_COIN_MONTH';
 export const SET_COIN_VALUE = 'SET_COIN_VALUE';
+export const SHOW_RESULT = 'SHOW_RESULT';
