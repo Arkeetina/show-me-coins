@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn run dev-servet
+  /usr/local/bin/node /usr/local/bin/yarn run dev server
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -48,6 +48,7 @@ npm manifest:
       "node-sass": "4.5.3",
       "normalize.css": "7.0.0",
       "numeral": "^2.0.6",
+      "prop-types": "^15.6.0",
       "react": "^16.0.0",
       "react-dates": "12.3.0",
       "react-dom": "^16.0.0",
@@ -6610,7 +6611,7 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Command "dev-servet" not found. Did you mean "dev-server"?
+  Error: Command "dev" not found.
       at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
       at /usr/local/lib/node_modules/yarn/lib/cli.js:86874:17
       at Generator.next (<anonymous>)

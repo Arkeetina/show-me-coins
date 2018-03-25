@@ -4,11 +4,8 @@ import CoinsTableMain from './CoinsTable/CoinsTableMain';
 
 const MainPage = () => (
   <div className="box-layout">
-    <div className="box-layout__box">
-      <CgCalculatorMain />
-      <hr />
-      <CoinsTableMain />
-    </div>
+    <CgCalculatorMain />
+    <CoinsTableMain />
   </div>
 );
 

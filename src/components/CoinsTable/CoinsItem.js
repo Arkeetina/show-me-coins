@@ -8,19 +8,20 @@ const CoinItem = ({
   onMouseOver,
   onMouseOut,
 }) => (
-  <tr>
-    <td
+  <div className="coin-table-row">
+    <div
+      className="coin-table-cell"
       onMouseOver={onMouseOver}
       onMouseOut={onMouseOut}
       onFocus={onMouseOver}
       onBlur={onMouseOut}
     >
       {name}
-    </td>
-    <td>{price_usd}</td>
-    <td>{market_cap_usd}</td>
-    <td className={(+percent_change_24h > 0) ? 'green' : 'red'}>{percent_change_24h}%</td>
-  </tr>
+    </div>
+    <div className="coin-table-cell"><span className="coin-table-row-text">{price_usd}</span></div>
+    <div className="coin-table-cell">{market_cap_usd}</div>
+    <div className={(+percent_change_24h > 0) ? 'coin-table-cell green' : 'coin-table-cell red'}>{percent_change_24h}%</div>
+  </div>
 );
 
 export default CoinItem;
