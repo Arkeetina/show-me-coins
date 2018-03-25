@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import SearchBar from './common/SearchBar';
-import SortButtons from './common/SortButtons';
+import SearchBar from '../common/SearchBar';
+import SortButtons from '../common/SortButtons';
 import {
   sortByNameAscending,
   sortByNameDescending,
@@ -12,7 +12,7 @@ import {
   sortByMarketCapDescending,
   sortByPerChangeAscending,
   sortByPerChangeDescending,
-} from '../actions/coinsFilters';
+} from '../../actions/coinsFilters';
 
 class CoinsListFilter extends Component {
   // Name
@@ -56,28 +56,28 @@ class CoinsListFilter extends Component {
     return (
       <div className="coin-table-head">
         <div className="coin-table-head-cell">
-          <span>Name</span>
+          <p className="coin-table-head-text">Name</p>
           <SortButtons
             onUpArrowClick={this.onSortByNameAscending}
             onDownArrowClick={this.onSortByNameDescending}
           />
         </div>
         <div className="coin-table-head-cell">
-          <span>Price ($)</span>
+          <p className="coin-table-head-text">Price ($)</p>
           <SortButtons
             onUpArrowClick={this.onSortByPriceUsdAscending}
             onDownArrowClick={this.onSortByPriceUsdDescending}
           />
         </div>
         <div className="coin-table-head-cell">
-          <span>Market Cap ($)</span>
+          <p className="coin-table-head-text">Market Cap ($)</p>
           <SortButtons
             onUpArrowClick={this.onSortByMarketCapAscending}
             onDownArrowClick={this.onSortByMarketCapDescending}
           />
         </div>
         <div className="coin-table-head-cell">
-          <span>Change (24h)</span>
+          <p className="coin-table-head-text">Change (24h)</p>
           <SortButtons
             onUpArrowClick={this.onSortByPerChangeAscending}
             onDownArrowClick={this.onSortByPerChangeDescending}

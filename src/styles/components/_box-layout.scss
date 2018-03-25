@@ -1,14 +1,10 @@
 .box-layout {
   align-items: center;
-  background: url('/images/bg.jpg');
-  background-size: cover;
-  display: grid;
-  grid-row-gap: 50px;
-  grid-template-rows: 1fr;
+  background: $black;
   height: 100vh;
-  justify-content: center;
   width: 100vw;
   overflow: scroll;
+  color: $off-white;
 }
 
 .box-layout__box {
@@ -16,7 +12,10 @@
   border-radius: 3px;
   padding: $l-size $m-size;
   text-align: center;
-  width: 50rem;
+  width: 35rem;
+  @media (min-width: $desktop-breakpoint) {
+    width: 60rem;
+  }
 }
 
 .box-layout__title {

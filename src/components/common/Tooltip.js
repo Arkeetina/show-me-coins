@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 
 const Tooltip = ({ isHidden, offSetTop, text }) => {
   const tooltip = {
-    top: `${offSetTop - 80}px`,
+    top: `${offSetTop - 250}px`,
   };
 
   return (

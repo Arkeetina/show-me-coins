@@ -3,22 +3,16 @@ import { connect } from 'react-redux';
 
 import CoinsListFilter from './CoinsListFilter';
 import CoinsList from './CoinsList';
-import Tooltip from './common/Tooltip';
-import SearchBar from './common/SearchBar';
+import SearchBar from '../common/SearchBar';
 
 const CoinTable = props => (
-  <div className="box-layout">
-    <div className="coin-table-container">
+  <div className="coin-table-container">
+    <div className="coin-table-search">
       <SearchBar />
-      <Tooltip
-        isHidden={props.tooltipisHidden}
-        text={props.text}
-        offSetTop={props.offSetTop}
-      />
-      <div>
-        <CoinsListFilter />
-        <CoinsList />
-      </div>
+    </div>
+    <div className="coint-table">
+      <CoinsListFilter />
+      <CoinsList />
     </div>
   </div>
 );

@@ -1,9 +1,17 @@
 .sort-buttons-containter {
-  font-size: 2.5rem;
+  font-size: $l-size;
+  @media (min-width: $desktop-breakpoint) {
+    font-size: $m-size;
+    justify-self: flex-start;
+  }
 }
 
 .sort-button {
   background: none;
   border: none;
+  color: $off-white;
+  padding: 5px;
 }
+
+
 

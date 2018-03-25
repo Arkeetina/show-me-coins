@@ -1,9 +1,12 @@
 .text-input {
-  border: 1px solid #cacccd;
-  height: 50px;
-  font-size: $font-size-large;
+  border: 1px solid $off-white;
+  border-radius: 0;
+  background: none;
+  color: $off-white;
+  height: 30px;
+  font-size: $font-size-small;
   font-weight: 300;
-  padding: $s-size;
+  padding: 0.1rem;
 }
 
 .select {
