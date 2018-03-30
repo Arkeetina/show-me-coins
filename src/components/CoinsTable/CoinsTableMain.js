@@ -6,15 +6,15 @@ import CoinsList from './CoinsList';
 import SearchBar from '../common/SearchBar';
 
 const CoinTable = props => (
-  <div className="coin-table-container">
-    <div className="coin-table-search">
-      <SearchBar />
+  <section className="table-section">
+    <div className="coin-table-container">
+      <div className="container">
+        <SearchBar />
+        <CoinsListFilter />
+        <CoinsList />
+      </div>
     </div>
-    <div className="coint-table">
-      <CoinsListFilter />
-      <CoinsList />
-    </div>
-  </div>
+  </section>
 );
 
 const mapStateToProps = (state) => {
