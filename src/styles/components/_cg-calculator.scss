@@ -5,59 +5,161 @@
 } 
 
 .cg-calculator-container {
-  height: 50rem;
-  background-color: $wine;
-  opacity: 0.84;
-  display: grid;
-  justify-items: center;
-  grid-template-columns: 1fr;
-  padding: $m-size;
-}
-
-.cg-calculator {
-  width: 30rem;
-  @media (min-width: $desktop-breakpoint) {
-    width: 60rem;
+  height: 34rem;
+  background-color: #230007;
+  opacity: 0.92;
+  color: $off-white;
+  @media (min-width: $tablet-breakpoint) {
+    height: 35rem;
   }
 }
 
+.cg-calculator {
+  padding: 20px 0px 6px 0px;
+}
+
 .cg-calculator-row {
+  margin-bottom: 1rem;
+  text-align: center;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  @media (min-width: $tablet-breakpoint) {
+    justify-content: center;
+    margin-bottom: 2.2rem;
+    flex-wrap: nowrap;
+  }
+}
+
+.input-value-row {
+  
+}
+
+.select-crypto-row {
+
+}
+
+.select-date-row {
 }
 
 .cg-calculator-row-date {
-  display: flex;
 }
 
 .cg-calculator-text {
-  padding: $s-size;
+  line-height: 2.5rem;
+  padding: 0px;
+  margin: 0 10px;
+  font-size: 1.4rem;
+  font-weight: 300;
+  align-self: center;
+  @media (min-width: $tablet-breakpoint) {
+    font-size: 2.2rem;
+  }
+}
+
+.cg-calculator-small-text {
+  line-height: 12px;
+  padding: 7px;
   margin: 0;
+  font-size: 0.9rem;
+  font-weight: 300;
+  font-style: italic;
   text-align: center;
+  opacity: 0.6;
+  width: 100%;
+  @media (min-width: $tablet-breakpoint) {
+    width: auto;
+    margin-left: 5px;
+    font-size: 1.2rem;
+    align-self: flex-end;
+  }
+}
+
+.cg-calculator-form-symbol {
+  top: 2px;
+  left: 5px;
+  position: relative;
+  @media (min-width: $tablet-breakpoint) {
+    top: 8px;
+  }
+}
+
+.cg-calculator-big-text {
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin-top: 0.5rem;
+  @media (min-width: $tablet-breakpoint) {
+    font-size: 2.1rem;
+    margin-top: 1rem;
+  }
 }
 
 .cg-result {
   background: $raspberry;
-  padding: $s-size;
+  padding: 1rem;
   text-align: center;
-  font-size: $m-size;
+  font-size: 1.2rem;
+  color: #eeeeee;
+  @media (min-width: $tablet-breakpoint) {
+    font-size: 2rem;
+    padding: 12px;
+  }
 }
 
-.cg-calculator-selector {
-  margin-left: 10px;
-  align-self: center;
-  width: 10rem;
+.cg-calculator-form-element {
+  margin-left: 0px;
   border-radius: 0;
+  color: #ffffff;
 }
 
-.cg-calculator-selector-coin {
-  @extend .cg-calculator-selector;
-  margin-left: 17px;
+select.cg-calculator-form-element {
+  background: url('http://i62.tinypic.com/15xvbd5.png') no-repeat 94%;
+  height: 30px;
+  overflow: hidden;
+  width: 150px;
+  font-size: 1.4rem;
+  padding: 4px;
+  @media (min-width: $tablet-breakpoint) {
+    height: 38px;
+    width: 200px;
+    font-size: 1.8rem;
+    padding: 8px;
+  }
+}
+
+select.cg-calculator-form-element.select-month {
+  width: 60px;
+  background-position: 84%;
+}
+
+select.cg-calculator-form-element.select-year {
+  width: 80px;
+  margin-left: 1.2rem;
+  background-position: 88%;
+}
+
+input.cg-calculator-form-element.text-input {
+  padding: 4px;
+  height: 25px;
+  overflow: hidden;
+  font-size: 1.4rem;
+  width: 8rem;
+  @media (min-width: $tablet-breakpoint) {
+    height: 35px;
+    width: 100px;
+    font-size: 1.8rem;
+    padding: 8px;
+  }
 }
 
 .cg-calculator-button {
-  width: 15rem;
-  justify-self: center;
+  width: 8rem;
+  height: 3rem;
+  margin: 0 auto;
+  @media (min-width: $tablet-breakpoint) {
+    width: 14rem;
+    height: 5rem;
+  }
 }
 
 .cg-calculator-button-container {
@@ -66,19 +168,13 @@
   justify-content: center;
   grid-template-rows: 1fr;
   width: 20rem;
-  font-size: $font-size-large;
-  @media (min-width: $desktop-breakpoint) {
+  @media (min-width: $tablet-breakpoint) {
     width: 40rem;
   }
 }
 
 .cg__error {
-  margin: 0;
-  font-style: italic;
-  font-size: $s-size;
+  @extend .cg-calculator-small-text;
   color: $red;
-  margin-left: $s-size;
-  @media (min-width: $desktop-breakpoint) {
-    margin-top: $s-size;
-  }
+  opacity: 1;
 }

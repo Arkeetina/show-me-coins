@@ -9,10 +9,10 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="input-group__item">
+      <div className="coin-table-search">
         <input
           type="text"
-          className="text-input"
+          className="table-search-input text-input"
           placeholder="Search Coins"
           value={this.props.coinsFilters.text}
           onChange={this.onTextChange}

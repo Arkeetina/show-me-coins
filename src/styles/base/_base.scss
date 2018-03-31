@@ -30,6 +30,13 @@ button:focus {
   font-weight: bold;
 }
 
+.container {
+  max-width: 94%;
+  margin: 0px auto;
+  @media (min-width: $desktop-breakpoint) {
+    max-width: 74%;
+  }
+}
 .green {
   color: green;
 }

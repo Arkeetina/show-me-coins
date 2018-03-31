@@ -12,7 +12,7 @@ class SortButtons extends Component {
 
   render() {
     return (
-      <div className="sort-buttons-containter">
+      <div className="sort-buttons-container">
         <a
           className="sort-button "
           onClick={this.onDownArrowClick}>

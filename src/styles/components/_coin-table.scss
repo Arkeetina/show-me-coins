@@ -3,20 +3,14 @@
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   border-radius: 3px;
-  padding: $m-size;
-  font-size: $s-size;
-  @media (min-width: $desktop-breakpoint) {
-    font-size: $m-size;
-    padding: $m-size 10rem;
-  }
+  padding: 20px 0px;
+  color: $off-white;
+  border-top: 1px solid #333333;
+  border-bottom: 1px solid #333333;
 }
 
-.coint-table {
-  font-size: 1.5rem;
-}
 
 .coin-table-head {
-  padding: $s-size $s-size 0 $s-size;
   display: grid;
   text-align: center;
   grid-template-columns: repeat(4, 1fr);
@@ -25,21 +19,28 @@
 .coin-table-head-cell {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  @media (min-width: $desktop-breakpoint) {
+  @media (min-width: $tablet-breakpoint) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 .coin-table-head-text {
+  font-size: 0.9rem;
+  @media (min-width: $tablet-breakpoint) {
+    align-self: center;
+    font-size: 1.1rem;
+  }
+}
+
+.coin-table-head-text {
   margin: 0;
-  @media (min-width: $desktop-breakpoint) {
+  @media (min-width: $tablet-breakpoint) {
     justify-self: flex-end;
   }
 }
 
 .coin-table-body {
   display: grid;
-  padding: $s-size;
   grid-template-columns: repeat(1, 1fr);
   grid-column-gap: 0.5rem;
 }
@@ -47,19 +48,30 @@
 .coin-table-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+}
+
+
+.coin-table-cell {
+  font-size: 1.2rem;
+  padding: 0.3rem;
   text-align: center;
 }
 
-.coin-table-row-text {
+.coin-table-search {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
 }
 
-.coin-table-search {
-  justify-self: end;
-  margin-right: 20px;
-  @media (min-width: $desktop-breakpoint) {
-    margin-right: 0;
+.table-search-input.text-input {
+  display: inline-block;
+  @media (min-width: $tablet-breakpoint) {
+    font-size: 1.1rem;
+    height: 25px;
   }
 }
+
+
 
 
 

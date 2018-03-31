@@ -50,59 +50,64 @@ class CgCalculatorMain extends Component {
   render() {
     return (
       <Fragment>
-      <div className="cg-calculator-background">
-      <div className="cg-calculator-container">
-        <div className="cg-calculator">
-          <div className="cg-calculator-row">
-            <p className="cg-calculator-text"> If I had invested</p>
-            <input
-              type="text"
-              className="cg-calculator-selector text-input"
-              placeholder="USD"
-              id="cryptoInputvalue"
-              onChange={this.onChangeValueInput}
-            />
-            {!this.state.error && <p className="cg-calculator-text">(enter value in USD)</p>}
-            {this.state.error && <p className="cg__error">{this.state.error}</p>}
+        <section className="calculator-section">
+          <div className="cg-calculator-background">
+            <div className="cg-calculator-container">
+              <div className="container">
+                <div className="cg-calculator">
+                  <div className="cg-calculator-row input-value-row">
+                    <p className="cg-calculator-text"> If I had invested</p>
+                    <input
+                      type="text"
+                      className="cg-calculator-form-element text-input"
+                      placeholder="USD"
+                      id="cryptoInputvalue"
+                      onChange={this.onChangeValueInput}
+                    /> 
+                    <span className="cg-calculator-form-symbol">$</span> 
+                    {!this.state.error && <p className="cg-calculator-small-text">(enter value in USD)</p>}
+                    {this.state.error && <p className="cg__error">{this.state.error}</p>}
+                  </div>
+                  <div className="cg-calculator-row select-crypto-row">
+                    <p className="cg-calculator-text"> In </p>
+                    <CgCalculatorCoinTypesList
+                      coinsHistoricalData={this.props.coinsHistoricalData}
+                      onChangeCoin={this.onChangeSelectedCoin}
+                    />
+                    <p className="cg-calculator-small-text">(choose cryptocurrency)</p>
+                  </div>
+                  <div className="cg-calculator-row select-date-row">
+                    <p className="cg-calculator-text"> On </p>
+                    <CgCalculatorMonthsList
+                      monthsData={this.props.selectedYearData.monthPrices}
+                      onChangeMonth={this.onChangeSelectedMonth}
+                      selectedMonth={this.props.currentMonth}
+                    />
+                    <CgCalculatorYearsList
+                      historicData={this.props.selectedCoinData.historicData}
+                      onChangeYear={this.onChangeSelectedYear}
+                      selectedYear={this.props.currentYear}
+                    />
+                    <p className="cg-calculator-small-text">(choose time m/y. Highest price for chosen month will be used)</p>
+                  </div>
+                  <div className="cg-calculator-button-container">
+                    <p className="cg-calculator-big-text"> ..how much money would I have today ? </p>
+                    <button className="button cg-calculator-button" onClick={this.onClickShowButton}>SHOW ME HOW MUCH</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="cg-calculator-row">
-            <p className="cg-calculator-text"> In </p>
-            <CgCalculatorCoinTypesList
-              coinsHistoricalData={this.props.coinsHistoricalData}
-              onChangeCoin={this.onChangeSelectedCoin}
-            />
-            <p className="cg-calculator-text">(choose cryptocurrency)</p>
-          </div>
-          <div className="cg-calculator-row-date">
-            <p className="cg-calculator-text"> On </p>
-            <CgCalculatorMonthsList
-              monthsData={this.props.selectedYearData.monthPrices}
-              onChangeMonth={this.onChangeSelectedMonth}
-              selectedMonth={this.props.currentMonth}
-            />
-            <CgCalculatorYearsList
-              historicData={this.props.selectedCoinData.historicData}
-              onChangeYear={this.onChangeSelectedYear}
-              selectedYear={this.props.currentYear}
-            />
-            <p className="cg-calculator-text">(choose time m/y)</p>
-          </div>
-          <div className="cg-calculator-button-container">
-            <p className="cg-calculator-text"> ..how much money would I have today ? </p>
-            <button className="cg-calculator-button button" onClick={this.onClickShowButton}>SHOW ME HOW MUCH</button>
-          </div>
-        </div>
-      </div>
-      </div>
-      {(this.props.displayResult) &&
-        <CgCalculatorResult 
-          inputedValue={this.props.inputedValue}
-          currentPrice={this.props.currentPrice}
-          historicPrice={this.props.historicPrice}
-          coinType={this.props.selectedCoinData.name}
-          monthNumber={this.props.currentMonth}
-          yearName={this.props.currentYear}
-      />}
+          {(this.props.displayResult) &&
+            <CgCalculatorResult 
+              inputedValue={this.props.inputedValue}
+              currentPrice={this.props.currentPrice}
+              historicPrice={this.props.historicPrice}
+              coinType={this.props.selectedCoinData.name}
+              monthNumber={this.props.currentMonth}
+              yearName={this.props.currentYear}
+          />}
+        </section>
       </Fragment>
     );
   }
