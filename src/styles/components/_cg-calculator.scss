@@ -31,20 +31,6 @@
   }
 }
 
-.input-value-row {
-  
-}
-
-.select-crypto-row {
-
-}
-
-.select-date-row {
-}
-
-.cg-calculator-row-date {
-}
-
 .cg-calculator-text {
   line-height: 2.5rem;
   padding: 0px;
@@ -113,7 +99,7 @@
 }
 
 select.cg-calculator-form-element {
-  background: url('http://i62.tinypic.com/15xvbd5.png') no-repeat 94%;
+  background: url('http://i62.tinypic.com/15xvbd5.png') no-repeat 96%;
   height: 30px;
   overflow: hidden;
   width: 150px;
@@ -156,7 +142,7 @@ input.cg-calculator-form-element.text-input {
   width: 8rem;
   height: 3rem;
   margin: 0 auto;
-  @media (min-width: $tablet-breakpoint) {
+  @media only screen and (min-width: $tablet-breakpoint) {
     width: 14rem;
     height: 5rem;
   }
@@ -168,7 +154,7 @@ input.cg-calculator-form-element.text-input {
   justify-content: center;
   grid-template-rows: 1fr;
   width: 20rem;
-  @media (min-width: $tablet-breakpoint) {
+  @media only screen and(min-width: $tablet-breakpoint) {
     width: 40rem;
   }
 }

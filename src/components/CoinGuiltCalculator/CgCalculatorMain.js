@@ -17,6 +17,7 @@ class CgCalculatorMain extends Component {
       error: '',
     }
   }
+
   onChangeSelectedCoin = (event) => {
     const coinType = event.currentTarget.value;
     this.props.selectCoinType(_.find(this.props.coinsHistoricalData, {name: coinType}));
