@@ -1,13 +1,17 @@
 .button {
-  background: $blue;
-  border: none;
-  color: white;
+  background: none;
+  border: 1px solid $off-white;
+  color: $off-white;
   display: inline-block;
-  font-size: $font-size-large;
+  font-size: 1rem;
   font-weight: 300;
   line-height: 1;
-  padding: $s-size;
+  padding: 0.2rem;
   text-decoration: none;
+  cursor: pointer;
+  @media (min-width: $tablet-breakpoint) {
+    font-size: 1.6rem;
+  }
 }
 
 .button--link {

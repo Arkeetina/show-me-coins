@@ -1,0 +1,78 @@
+.coin-table-container {
+  background: $black;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  border-radius: 3px;
+  padding: 20px 0px;
+  color: $off-white;
+  border-top: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  height: 39rem;
+}
+
+
+.coin-table-head {
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.coin-table-head-cell {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  @media (min-width: $tablet-breakpoint) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.coin-table-head-text {
+  font-size: 0.9rem;
+  @media (min-width: $tablet-breakpoint) {
+    align-self: center;
+    font-size: 1.1rem;
+  }
+}
+
+.coin-table-head-text {
+  margin: 0;
+  @media (min-width: $tablet-breakpoint) {
+    justify-self: flex-end;
+  }
+}
+
+.coin-table-body {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: 0.5rem;
+}
+
+.coin-table-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+
+.coin-table-cell {
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  text-align: center;
+}
+
+.coin-table-search {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.table-search-input.text-input {
+  display: inline-block;
+  @media (min-width: $tablet-breakpoint) {
+    font-size: 1.1rem;
+    height: 25px;
+  }
+}
+
+
+
+
+

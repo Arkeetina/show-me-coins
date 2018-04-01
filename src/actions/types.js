@@ -1,5 +1,7 @@
 // coin data
 export const FETCH_COIN = 'FETCH_COIN';
+export const SHOW_TOOLTIP = 'SHOW_TOOLTIP';
+export const HIDE_TOOLTIP = 'HIDE_TOOLTIP';
 
 // coin filters
 export const SORT_BY_NAME_ASCENDING = 'SORT_BY_NAME_ASCENDING';
@@ -11,3 +13,11 @@ export const SORT_BY_MARKET_CAP_DESCENDING = 'SORT_BY_MARKET_CAP_DESCENDING';
 export const SORT_BY_PER_CHANGE_ASCENDING = 'SORT_BY_PER_CHANGE_ASCENDING';
 export const SORT_BY_PER_CHANGE_DESCENDING = 'SORT_BY_PER_CHANGE_DESCENDING';
 export const SET_TEXT_FILTER = 'SET_TEXT_FILTER';
+
+
+// coin calculator
+export const SET_COIN_TYPE = 'SET_COIN_TYPE';
+export const SET_COIN_YEAR = 'SET_COIN_YEAR';
+export const SET_COIN_MONTH = 'SET_COIN_MONTH';
+export const SET_COIN_VALUE = 'SET_COIN_VALUE';
+export const SHOW_RESULT = 'SHOW_RESULT';

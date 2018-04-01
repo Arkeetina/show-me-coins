@@ -1,17 +1,15 @@
 import React from 'react';
-import CoinsListFilter from './CoinsListFilter';
-import CoinsList from './CoinsList';
-import SearchBar from './common/SearchBar';
+import Header from './Header';
+import CgCalculatorMain from './CoinGuiltCalculator/CgCalculatorMain';
+import CoinsTableMain from './CoinsTable/CoinsTableMain';
+import Footer from './Footer';
 
 const MainPage = () => (
   <div className="box-layout">
-    <div className="box-layout__box">
-      <SearchBar />
-      <table>
-        <CoinsListFilter />
-        <CoinsList />
-      </table>
-    </div>
+    <Header />
+    <CgCalculatorMain />
+    <CoinsTableMain />
+    <Footer />
   </div>
 );
 
