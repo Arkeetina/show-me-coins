@@ -13,7 +13,7 @@ const CgCalculatorResult = ({
       If you had invested {inputedValue} dollars in {coinType} on the highest point
       on {monthNumber},
       {yearName},
-      today you would have: {(inputedValue / historicPrice) * currentPrice} $
+      today you would have: {parseInt(((inputedValue / historicPrice) * currentPrice), 0)} $
     </p>
   </div>
 );
