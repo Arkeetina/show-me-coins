@@ -1,6 +1,10 @@
 # Show Me Coins
 2018 Simple Crypto app for displaying information about cryptocurrencies
 
+## Demo
+
+https://show-me-coins.herokuapp.com
+
 ## Built With/Tech Stack
 React/Redux
 Node
