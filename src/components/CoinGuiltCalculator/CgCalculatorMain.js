@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { selectCoinType, selectCoinYear, selectCoinMonth, inputValue, showResult } from '../../actions/coinsCalculator';
-import getYearSelector from '../../selectors/getYearSelector';
-import getMonthSelector from '../../selectors/getMonthSelector';
+import PropTypes from 'prop-types';
+import find from 'lodash.find';
+
+import { selectCoinType, selectCoinYear, selectCoinMonth, setDollarValue, showResult } from '../../actions/coinsCalculator';
 import getCurrentPriceSelector from '../../selectors/getCurrentPriceSelector';
 import getHistoricalValueSelector from '../../selectors/getHistoricalValueSelector';
-import CgCalculatorResult from './CgCalculatorResult';
 import CgCalculatorCoinTypesList from './CgCalculatorCoinTypesList';
 import CgCalculatorYearsList from './CgCalculatorYearsList';
 import CgCalculatorMonthsList from './CgCalculatorMonthsList';
@@ -15,33 +15,34 @@ class CgCalculatorMain extends Component {
     super(props);
     this.state = {
       error: '',
-    }
+    };
   }
 
   onChangeSelectedCoin = (event) => {
     const coinType = event.currentTarget.value;
-    this.props.selectCoinType(_.find(this.props.coinsHistoricalData, {name: coinType}));
+    this.props.selectCoinType(find(this.props.coinsHistoricalData, { name: coinType }));
   }
 
   onChangeSelectedYear = (event) => {
-    const yearName = parseInt(event.currentTarget.value);
-    this.props.selectCoinYear(_.find(this.props.selectedCoinData.historicData, {year: yearName}));
+    const yearName = parseInt(event.currentTarget.value, 10);
+    this.props.selectCoinYear(find(this.props.selectedCoinData.historicData, { year: yearName }));
   }
 
   onChangeSelectedMonth = (event) => {
-    const monthNumber = parseInt(event.currentTarget.value);
-    this.props.selectCoinMonth(_.find(this.props.selectedYearData.monthPrices, {monthId: monthNumber}));
+    const monthNumber = parseInt(event.currentTarget.value, 10);
+    this.props
+      .selectCoinMonth(find(this.props.selectedYearData.monthPrices, { monthId: monthNumber }));
   }
 
   onChangeValueInput = (event) => {
-    const inputedDollarValue = parseInt(event.target.value);
-    this.props.inputValue(inputedDollarValue);
+    const inputedDollarValue = parseInt(event.target.value, 10);
+    this.props.setDollarValue(inputedDollarValue);
   }
 
   onClickShowButton = () => {
     const { inputedValue } = this.props;
     if (!inputedValue) {
-      this.setState(() => ({error: 'Please enter the amount'}));
+      this.setState(() => ({ error: 'Please enter the amount' }));
     } else {
       this.setState(() => ({ error: '' }));
       this.props.showResult();
@@ -62,10 +63,10 @@ class CgCalculatorMain extends Component {
                       type="text"
                       className="cg-calculator-form-element text-input"
                       placeholder="USD"
-                      id="cryptoInputvalue"
+                      id="cryptosetDollarValue"
                       onChange={this.onChangeValueInput}
                     /> 
-                    <span className="cg-calculator-form-symbol">$</span> 
+                    <span className="cg-calculator-form-symbol">$</span>
                     {!this.state.error && <p className="cg-calculator-small-text">(enter value in USD)</p>}
                     {this.state.error && <p className="cg__error">{this.state.error}</p>}
                   </div>
@@ -99,22 +100,13 @@ class CgCalculatorMain extends Component {
               </div>
             </div>
           </div>
-          {(this.props.displayResult) &&
-            <CgCalculatorResult 
-              inputedValue={this.props.inputedValue}
-              currentPrice={this.props.currentPrice}
-              historicPrice={this.props.historicPrice}
-              coinType={this.props.selectedCoinData.name}
-              monthNumber={this.props.currentMonth}
-              yearName={this.props.currentYear}
-          />}
         </section>
       </Fragment>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const calculatorData = state.coinsCalculator;
 
   return {
@@ -128,16 +120,25 @@ const mapStateToProps = state => {
     currentPrice: getCurrentPriceSelector(state.coinsData, calculatorData.selectedCoinData.name),
     historicPrice: getHistoricalValueSelector(calculatorData.selectedYearData.monthPrices, calculatorData.selectedMonthData.monthId),
     inputedValue: calculatorData.inputedValue,
-    displayResult: calculatorData.displayResult
-  }
+    displayResult: calculatorData.displayResult,
+  };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  selectCoinType: (coinType) => dispatch(selectCoinType(coinType)),
-  selectCoinYear: (yearName) => dispatch(selectCoinYear(yearName)),
-  selectCoinMonth: (monthNumber) => dispatch(selectCoinMonth(monthNumber)),
-  inputValue: (inputedDollarValue) => dispatch(inputValue(inputedDollarValue)),
+const mapDispatchToProps = dispatch => ({
+  selectCoinType: coinType => dispatch(selectCoinType(coinType)),
+  selectCoinYear: yearName => dispatch(selectCoinYear(yearName)),
+  selectCoinMonth: monthNumber => dispatch(selectCoinMonth(monthNumber)),
+  setDollarValue: inputedDollarValue => dispatch(setDollarValue(inputedDollarValue)),
   showResult: () => dispatch(showResult()),
 });
+
+CgCalculatorMain.propTypes = {
+  selectCoinType: PropTypes.func.isRequired,
+  selectCoinYear: PropTypes.func.isRequired,
+  selectCoinMonth: PropTypes.func.isRequired,
+  setDollarValue: PropTypes.func.isRequired,
+  showResult: PropTypes.func.isRequired,
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(CgCalculatorMain);

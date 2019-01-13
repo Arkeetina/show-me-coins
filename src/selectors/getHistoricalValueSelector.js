@@ -1,7 +1,7 @@
-import _ from 'lodash';
+import find from 'lodash.find';
 
 export default (selectedYear, selectedMonth) => {
-  const historicalMonth = _.find(selectedYear, { monthId: selectedMonth });
+  const historicalMonth = find(selectedYear, { monthId: selectedMonth });
 
   if (historicalMonth && historicalMonth.price) {
     return historicalMonth.price;

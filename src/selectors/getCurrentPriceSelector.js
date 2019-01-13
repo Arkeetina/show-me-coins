@@ -1,7 +1,7 @@
-import _ from 'lodash';
+import find from 'lodash.find';
 
 export default (rates, selectedCoin) => {
-  const selectedCurrentCoinValue = _.find(rates, { id: selectedCoin });
+  const selectedCurrentCoinValue = find(rates, { id: selectedCoin });
 
   if (selectedCurrentCoinValue && selectedCurrentCoinValue.price_usd) {
     return parseInt(selectedCurrentCoinValue.price_usd, 0);

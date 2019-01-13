@@ -6,14 +6,12 @@
 .header-container {
   display: grid;
   justify-items: start;
+  height: 75px;
   grid-template-columns: 1fr;
 
   h1 {
-    font-size: 1.5rem;
-    color: $black;
+    color: $dark-navy;
     font-weight: 700;
-    @media (min-width: $tablet-breakpoint) {
-      font-size: 2.6rem;
-    }
+    font-size: 2.6rem;
   }
 }

@@ -3,26 +3,21 @@ import { connect } from 'react-redux';
 
 import CoinsListFilter from './CoinsListFilter';
 import CoinsList from './CoinsList';
-import SearchBar from '../common/SearchBar';
 
-const CoinTable = props => (
+const CoinTable = () => (
   <section className="table-section">
     <div className="coin-table-container">
-      <div className="container">
-        <SearchBar />
-        <CoinsListFilter />
-        <CoinsList />
-      </div>
+      <h1>Top 10 Cryptocurrencies</h1>
+      <CoinsListFilter />
+      <CoinsList />
     </div>
   </section>
 );
 
-const mapStateToProps = (state) => {
-  return {
-    tooltipisHidden: state.coinsUI.tooltipisHidden,
-    offSetTop: state.coinsUI.offSetTop,
-    text: state.coinsUI.text,
-  };
-};
+const mapStateToProps = state => ({
+  tooltipisHidden: state.coinsUI.tooltipisHidden,
+  offSetTop: state.coinsUI.offSetTop,
+  text: state.coinsUI.text,
+});
 
 export default connect(mapStateToProps)(CoinTable);

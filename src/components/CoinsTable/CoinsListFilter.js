@@ -63,19 +63,13 @@ class CoinsListFilter extends Component {
           />
         </div>
         <div className="coin-table-head-cell">
-          <p className="coin-table-head-text">Price ($)</p>
+          <p className="coin-table-head-text">Price</p>
           <SortButtons
             onUpArrowClick={this.onSortByPriceUsdAscending}
             onDownArrowClick={this.onSortByPriceUsdDescending}
           />
         </div>
-        <div className="coin-table-head-cell">
-          <p className="coin-table-head-text">Market Cap ($)</p>
-          <SortButtons
-            onUpArrowClick={this.onSortByMarketCapAscending}
-            onDownArrowClick={this.onSortByMarketCapDescending}
-          />
-        </div>
+
         <div className="coin-table-head-cell">
           <p className="coin-table-head-text">Change (24h)</p>
           <SortButtons
@@ -83,12 +77,19 @@ class CoinsListFilter extends Component {
             onDownArrowClick={this.onSortByPerChangeDescending}
           />
         </div>
-    </div>
-    )
+        <div className="coin-table-head-cell">
+          <p className="coin-table-head-text">Market Cap</p>
+          <SortButtons
+            onUpArrowClick={this.onSortByMarketCapAscending}
+            onDownArrowClick={this.onSortByMarketCapDescending}
+          />
+        </div>
+      </div>
+    );
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   sortByNameAscending: () => dispatch(sortByNameAscending()),
   sortByNameDescending: () => dispatch(sortByNameDescending()),
   sortByPriceUsdAscending: () => dispatch(sortByPriceUsdAscending()),

@@ -21,7 +21,7 @@ export const selectCoinMonth = monthNumber => ({
   payload: monthNumber,
 });
 
-export const inputValue = inputedDollarValue => ({
+export const setDollarValue = inputedDollarValue => ({
   type: SET_COIN_VALUE,
   payload: inputedDollarValue,
 });
