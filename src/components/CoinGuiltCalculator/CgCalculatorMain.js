@@ -24,8 +24,8 @@ class CgCalculatorMain extends Component {
   }
 
   onChangeSelectedYear = (event) => {
-    const yearName = parseInt(event.currentTarget.value, 10);
-    this.props.selectCoinYear(find(this.props.selectedCoinData.historicData, { year: yearName }));
+    const yearNumber = parseInt(event.currentTarget.value, 10);
+    this.props.selectCoinYear(find(this.props.selectedCoinData.historicData, { year: yearNumber }));
   }
 
   onChangeSelectedMonth = (event) => {
@@ -35,6 +35,7 @@ class CgCalculatorMain extends Component {
   }
 
   onChangeValueInput = (event) => {
+    if (this.state.error) this.setState({ error: '' })
     const inputedDollarValue = parseInt(event.target.value, 10);
     this.props.setDollarValue(inputedDollarValue);
   }
@@ -48,27 +49,30 @@ class CgCalculatorMain extends Component {
       this.props.showResult();
     }
   }
+  
 
   render() {
+    const inputClass = 'cg-calculator-form-element text-input';
+    const symbolClass = 'cg-calculator-form-symbol';
     return (
       <Fragment>
         <section className="calculator-section">
           <div className="cg-calculator-background">
             <div className="cg-calculator-container">
-              <div className="container">
+              {/* <div className="container"> */}
                 <div className="cg-calculator">
                   <div className="cg-calculator-row input-value-row">
                     <p className="cg-calculator-text"> If I had invested</p>
                     <input
                       type="text"
-                      className="cg-calculator-form-element text-input"
+                      className={this.state.error ? `${inputClass} text-input__error` : inputClass}
                       placeholder="USD"
                       id="cryptosetDollarValue"
                       onChange={this.onChangeValueInput}
                     /> 
-                    <span className="cg-calculator-form-symbol">$</span>
+                    <span className={this.state.error ? `${symbolClass} cg-calculator-form-symbol__error` : symbolClass}>$</span>
                     {!this.state.error && <p className="cg-calculator-small-text">(enter value in USD)</p>}
-                    {this.state.error && <p className="cg__error">{this.state.error}</p>}
+                    {this.state.error && <p className="cg__error cg__error-spacing">{this.state.error}</p>}
                   </div>
                   <div className="cg-calculator-row select-crypto-row">
                     <p className="cg-calculator-text"> In </p>
@@ -98,7 +102,7 @@ class CgCalculatorMain extends Component {
                   </div>
                 </div>
               </div>
-            </div>
+            {/* </div> */}
           </div>
         </section>
       </Fragment>
@@ -126,7 +130,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   selectCoinType: coinType => dispatch(selectCoinType(coinType)),
-  selectCoinYear: yearName => dispatch(selectCoinYear(yearName)),
+  selectCoinYear: yearNumber => dispatch(selectCoinYear(yearNumber)),
   selectCoinMonth: monthNumber => dispatch(selectCoinMonth(monthNumber)),
   setDollarValue: inputedDollarValue => dispatch(setDollarValue(inputedDollarValue)),
   showResult: () => dispatch(showResult()),

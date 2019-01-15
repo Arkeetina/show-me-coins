@@ -7,7 +7,7 @@ import CoinsList from './CoinsList';
 const CoinTable = () => (
   <section className="table-section">
     <div className="coin-table-container">
-      <h1>Top 10 Cryptocurrencies</h1>
+      <h1 className="coin-table-title">Top 10 Cryptocurrencies</h1>
       <CoinsListFilter />
       <CoinsList />
     </div>

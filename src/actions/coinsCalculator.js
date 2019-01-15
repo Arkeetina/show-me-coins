@@ -11,9 +11,9 @@ export const selectCoinType = coinType => ({
   payload: coinType,
 });
 
-export const selectCoinYear = yearName => ({
+export const selectCoinYear = yearNumber => ({
   type: SET_COIN_YEAR,
-  payload: yearName,
+  payload: yearNumber,
 });
 
 export const selectCoinMonth = monthNumber => ({

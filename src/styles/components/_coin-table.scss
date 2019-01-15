@@ -1,27 +1,33 @@
 .coin-table-container {
   background: none;
-  display: grid;
-  font-size: 15px;
-  grid-template-columns: repeat(1, 1fr);
+  font-size: 14px;
   border-radius: 3px;
   padding: 20px 0px;
   color: $off-white;
+  @media (max-width: 1024px) {
+    display: none;
+  }
 }
 
 .table-section {
   display: flex;
-  align-items: center;
 }
 
+.coin-table-title {
+  font-weight: 400;
+}
 
 .coin-table-head {
   display: grid;
-  text-align: center;
-  grid-template-columns: repeat(4, 1fr);
+  text-align: left;
+  grid-template-columns: repeat(4, 120px);
+  margin-bottom: 10px;
 }
 
 .coin-table-head-cell {
-  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
 }
 
 .coin-table-head-text {
@@ -42,7 +48,6 @@
 
 
 .coin-table-cell {
-  // font-size: 1.2rem;
   padding: 0.3rem;
   text-align: center;
 }

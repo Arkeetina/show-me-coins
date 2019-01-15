@@ -1,4 +1,4 @@
-# Show Me Coins
+# Crypto Historic Calculator
 2018 Simple Crypto app for displaying information about cryptocurrencies
 
 ## Demo

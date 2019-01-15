@@ -15,17 +15,16 @@ class SortButtons extends Component {
       <div className="sort-buttons-container">
         <button
           className="sort-button"
-          style={{ marginRight: '10px' }}
           onClick={this.onDownArrowClick}
         >
           <i className="fas fa-angle-down" />
         </button>
-        <button
+        {/* <button
           className="sort-button"
           onClick={this.onUpArrowClick}
         >
           <i className="fas fa-angle-up" />
-        </button>
+        </button> */}
       </div>
     );
   }

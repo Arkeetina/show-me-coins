@@ -4,19 +4,27 @@
   background: none;
   color: $off-white;
   height: 1.8rem;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   font-weight: 300;
   padding: 0.1rem;
 }
 
-textarea {
-  @extend .text-input;
-  height: 10rem;
+.text-input__error {
+  border: 1px solid $red;
 }
+
+.text-input:hover {
+  background: #ffffff1c;
+  border: 1px solid $light-blue;
+}
+
+// textarea {
+//   @extend .text-input;
+//   height: 10rem;
+// }
 
 input::placeholder {
   color: $off-white;
-  font-size: 0.7rem;
   @media (min-width: $tablet-breakpoint) {
     font-size: 1.3rem;
   }

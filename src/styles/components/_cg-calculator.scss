@@ -1,64 +1,59 @@
-// .cg-calculator-background {
-
-// } 
-
-// .cg-calculator-container {
-//   background-color: #230007;
-//   opacity: 0.92;
-//   color: $off-white;
-//   // @media (min-width: $tablet-breakpoint) {
-//   //   height: 35rem;
-//   // }
-// }
+.cg-calculator-container {
+  max-width: 94%;
+  @media (min-width: 860px) {
+    max-width: 84%;
+  }
+  @media (max-width: $desktop-breakpoint) {
+    margin: 0 auto;
+  }
+  @media (min-height: 1120px) {
+    margin: 0 auto;
+  }
+}
 
 .cg-calculator {
-  padding: 20px 0px 6px 0px;
+  padding: 80px 0px 6px 0px;
+  @media (max-width: $desktop-breakpoint) {
+    padding: 40px 0px 40px 0px;
+  }
 }
 
 .cg-calculator-row {
   margin-bottom: 1rem;
   text-align: center;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  @media (min-width: $tablet-breakpoint) {
-    justify-content: center;
-    margin-bottom: 2.2rem;
-    flex-wrap: nowrap;
-  }
+  margin-bottom: 2.2rem;
+  flex-wrap: nowrap;
 }
 
 .cg-calculator-text {
   line-height: 2.5rem;
   padding: 0px;
   margin: 0 10px;
-  font-size: 1.4rem;
   font-weight: 300;
   align-self: center;
-  @media (min-width: $tablet-breakpoint) {
-    font-size: 2.2rem;
-  }
+  font-size: 2.2rem;
 }
 .calculator-section {
-  align-items: center;
+  margin: 70px 0;
   display: flex;
 
 }
 .cg-calculator-small-text {
   line-height: 12px;
+  margin: 2px 0 0 5px;
   padding: 7px;
-  margin: 0;
   font-size: 0.9rem;
   font-weight: 300;
   font-style: italic;
   text-align: center;
   opacity: 0.6;
-  width: 100%;
   @media (min-width: $tablet-breakpoint) {
     width: auto;
     margin-left: 5px;
     font-size: 1.2rem;
-    align-self: flex-end;
+    align-self: center;
   }
 }
 
@@ -72,9 +67,9 @@
 }
 
 .cg-calculator-big-text {
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: 300;
-  margin-top: 0.5rem;
+  margin: 1.5rem 2rem;
   @media (min-width: $tablet-breakpoint) {
     font-size: 2.1rem;
     margin-top: 1rem;
@@ -82,15 +77,21 @@
 }
 
 .cg-result {
-  background: $raspberry;
-  padding: 1rem;
+  background: $soft-grey;
   text-align: center;
   font-size: 1.2rem;
-  color: #eeeeee;
+  color: $dark-navy;
+  font-size: 1.4rem;
+  padding: 1.5rem 2.5rem;
   @media (min-width: $tablet-breakpoint) {
-    font-size: 2rem;
-    padding: 12px;
+    padding: 1.5rem 11.5rem;
   }
+}
+.cg-result p {
+  margin: 0;
+}
+.cg-result-text-bold {
+  font-weight: 600;
 }
 
 .cg-calculator-form-element {
@@ -103,15 +104,15 @@ select.cg-calculator-form-element {
   background: none;
   height: 30px;
   overflow: hidden;
-  width: 150px;
-  font-size: 1.4rem;
-  padding: 4px;
-  @media (min-width: $tablet-breakpoint) {
-    height: 38px;
-    width: 200px;
-    font-size: 1.8rem;
-    padding: 8px;
-  }
+  height: 42px;
+  width: 200px;
+  font-size: 1.8rem;
+  padding: 8px;
+  &:hover {
+    background: #ffffff1c;
+    border: 1px solid $light-blue;
+  } 
+
 }
 
 select.cg-calculator-form-element.select-month {
@@ -127,26 +128,16 @@ select.cg-calculator-form-element.select-year {
 
 input.cg-calculator-form-element.text-input {
   padding: 4px;
-  height: 25px;
   overflow: hidden;
-  font-size: 1.4rem;
-  width: 8rem;
-  @media (min-width: $tablet-breakpoint) {
-    height: 35px;
-    width: 100px;
-    font-size: 1.8rem;
-    padding: 8px;
-  }
+  height: 42px;
+  width: 10rem;
+  padding: 8px;
 }
 
 .cg-calculator-button {
-  width: 8rem;
-  height: 3rem;
   margin: 0 auto;
-  @media only screen and (min-width: $tablet-breakpoint) {
-    width: 14rem;
-    height: 5rem;
-  }
+  width: 15rem;
+  height: 5rem;
 }
 
 .cg-calculator-button-container {
@@ -154,14 +145,18 @@ input.cg-calculator-form-element.text-input {
   display: grid;
   justify-content: center;
   grid-template-rows: 1fr;
-  width: 20rem;
-  @media only screen and(min-width: $tablet-breakpoint) {
-    width: 40rem;
-  }
 }
 
 .cg__error {
   @extend .cg-calculator-small-text;
   color: $red;
   opacity: 1;
+}
+
+.cg-calculator-form-symbol__error {
+  color: $red;
+}
+
+.cg__error-spacing {
+  margin: 2px 0 0 5px;
 }

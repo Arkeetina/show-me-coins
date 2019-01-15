@@ -34,7 +34,7 @@ const MainPage = ({
         historicPrice={historicPrice}
         coinType={selectedCoinData.name}
         monthNumber={currentMonth}
-        yearName={currentYear}
+        yearNumber={currentYear}
       />}
     <Footer />
   </div>
