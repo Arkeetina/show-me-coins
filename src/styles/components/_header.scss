@@ -1,21 +1,43 @@
 .header-section {
-  background: #ffffff;
+  background: $white;
   margin: 0px;
 }
 
-.header-container {
-  display: grid;
-  justify-items: start;
-  height: 75px;
-  grid-template-columns: 1fr;
-  @media (max-width: 380px) {
-    height: 70px;
+.header-mode-button {
+  color: $blue;
+  background: none;
+  border: none;
+  font-weight: 700;
+  font-size: $font-size-medium;
+  &:hover {
+    color: $dark-grey;
   }
+}
+
+.header-button-text {
+  margin-left: 0.5rem;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-family: 'Raleway', sans-serif;
+  justify-items: start;
+  min-height: 6rem;
+  max-width: 94%;
+  margin: 0px auto;
+  @media (min-width: $desktop-breakpoint) {
+    max-width: 87%;
+  }
+
 
   h1 {
     color: $dark-navy;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 2.6rem;
+    margin: 0;
     @media (max-width: 380px) {
       font-size: 2.2rem;
     }

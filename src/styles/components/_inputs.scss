@@ -1,11 +1,10 @@
 .text-input {
-  border: 1px solid $off-white;
+  border: 1px solid $grey;
   border-radius: 0;
-  background: none;
-  color: $off-white;
+  background-color: $light-grey;
+  color: $dark-navy;
   height: 1.8rem;
-  font-size: 1.3rem;
-  font-weight: 300;
+  font-weight: 400;
   padding: 0.1rem;
 }
 
@@ -14,8 +13,9 @@
 }
 
 .text-input:hover {
-  background: #ffffff1c;
-  border: 1px solid $light-blue;
+  background: $mid-grey;
+  transition: all 0.2s;
+  box-shadow: 0.1px 0.1px 0.1px #0000002b;
 }
 
 // textarea {
@@ -24,9 +24,9 @@
 // }
 
 input::placeholder {
-  color: $off-white;
+  color: $dark-navy;
   @media (min-width: $tablet-breakpoint) {
-    font-size: 1.3rem;
+    font-size: 1.7rem;
   }
 }
 
@@ -37,6 +37,21 @@ select, option {
 }
 
 select {
-  border: 1px solid #f7f7f7;
+  border: 1px solid $grey;
+  color: $dark-navy;
 }
 
+select.cg-calculator-form-element {
+  background-color: $light-grey;
+  height: 30px;
+  overflow: hidden;
+  height: 42px;
+  width: 100%;
+  padding: 8px;
+  &:hover {
+    transition: all 0.2s;
+    background: $mid-grey;
+    box-shadow: 0.1px 0.1px 0.1px #0000002b;
+  } 
+
+}

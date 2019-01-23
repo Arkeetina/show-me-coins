@@ -6,9 +6,11 @@ import Header from './Header';
 import getCurrentPriceSelector from '../selectors/getCurrentPriceSelector';
 import getHistoricalValueSelector from '../selectors/getHistoricalValueSelector';
 import CgCalculatorMain from './CoinGuiltCalculator/CgCalculatorMain';
-import CoinsTableMain from './CoinsTable/CoinsTableMain';
+// import CoinsTableMain from './CoinsTable/CoinsTableMain';
 import CgCalculatorResult from '../components/CoinGuiltCalculator/CgCalculatorResult';
 import Footer from './Footer';
+
+// <CoinsTableMain />
 
 const MainPage = ({
   inputedValue,
@@ -21,10 +23,9 @@ const MainPage = ({
 }) => (
   <div className="box-layout">
     <Header />
-    <div className="main-container-background">
-      <div className="main-container">
+    <div className="main-container">
+      <div className="container">
         <CgCalculatorMain />
-        <CoinsTableMain />
       </div>
     </div>
     {displayResult &&

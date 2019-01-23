@@ -1,21 +1,22 @@
 .button {
-  background: none;
-  border: 1px solid $off-white;
-  color: $off-white;
+  background: $dark-navy;
+  border: none;
+  color: $white;
   display: inline-block;
   font-size: 1.6rem;
-  font-weight: 300;
+  box-shadow: 1.2px 1.2px 1.2px 1.2px #00000026;
+  font-weight: 500;
+  font-size: $font-size-small;
   line-height: 1;
   padding: 0.5rem;
+  border-radius: 3px;
   text-decoration: none;
   cursor: pointer;
   &:hover {
-    background: #ffffff1c;
-    border: 1px solid $light-blue;
+    background-color: #3f455f;
   }
   &:focus {
-    background: #ffffff1c;
-    border: 1px solid $light-blue;
+    background-color: #3f455f;
   }
 }
 
