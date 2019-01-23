@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn run dev-serve
+  /usr/local/bin/node /usr/local/bin/yarn run-deverser
 
 PATH: 
   /anaconda3/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/anaconda3/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin
@@ -7722,7 +7722,7 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Command "dev-serve" not found. Did you mean "dev-server"?
+  Error: Command "run-deverser" not found.
       at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
       at /usr/local/lib/node_modules/yarn/lib/cli.js:86874:17
       at Generator.next (<anonymous>)

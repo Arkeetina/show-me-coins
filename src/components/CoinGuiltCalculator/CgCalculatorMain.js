@@ -155,11 +155,13 @@ const mapDispatchToProps = dispatch => ({
   showResult: () => dispatch(showResult()),
 });
 
+const HistoricData = {
+  historicData: PropTypes.number,
+  monthPrices: PropTypes.number,
+};
+
 CgCalculatorMain.propTypes = {
-  coinsHistoricalData: PropTypes.shape({
-    historicData: PropTypes.shape({}).isRequired,
-    monthPrices: PropTypes.shape({}).isRequired,
-  }).isRequired,
+  coinsHistoricalData: PropTypes.arrayOf(HistoricData).isRequired,
   selectedCoinData: PropTypes.shape({}).isRequired,
   selectedYearData: PropTypes.shape({}).isRequired,
   inputedValue: PropTypes.number.isRequired,

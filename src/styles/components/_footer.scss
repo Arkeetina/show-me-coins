@@ -1,6 +1,6 @@
 
 .footer-section {
-    background-color: $dark-navy;
+    background-color: $extra-dark-navy;
     height: 100%;
 }
 .footer-container {
@@ -13,7 +13,7 @@
 
 .footer-container {
     p {
-        font-size: 1rem;
+        font-size: $font-size-xsmall;
     }
 }
 
@@ -24,12 +24,12 @@
 }
 
 .footer-container ul li {
-    font-size: 1rem;
+    font-size: $font-size-xsmall;
     margin: 0px;
 }
 
 p.footer-end {
-    font-size: 1rem;
+    font-size: $font-size-xsmall;
     border-top: 1px solid #666666;
     padding-top: 10px;
     color: #dddddd;

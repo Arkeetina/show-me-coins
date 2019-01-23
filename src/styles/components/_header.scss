@@ -12,34 +12,41 @@
   &:hover {
     color: $dark-grey;
   }
+  &:focus {
+    color: $dark-grey;
+  }
 }
 
 .header-button-text {
   margin-left: 0.5rem;
+  display: none;
+  @media (min-width: $desktop-breakpoint) {
+    display: inline-block;
+  }
 }
 
 .header-container {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   justify-content: space-between;
   font-family: 'Raleway', sans-serif;
   justify-items: start;
   min-height: 6rem;
   max-width: 94%;
   margin: 0px auto;
+  font-size: 1.1rem;
+
+  @media (max-width: 380px) {
+    font-size: 0.85rem;
+  }
+
   @media (min-width: $desktop-breakpoint) {
     max-width: 87%;
   }
 
-
   h1 {
     color: $dark-navy;
     font-weight: 600;
-    font-size: 2.6rem;
     margin: 0;
-    @media (max-width: 380px) {
-      font-size: 2.2rem;
-    }
   }
 }
