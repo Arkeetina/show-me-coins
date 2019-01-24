@@ -29,7 +29,7 @@ const MainPage = ({
 
         {appMode === 'calculator' &&
           <div>
-            <h3 className="section-title section-title-spacing">Calculate historic crypto price</h3>
+            <h3 className="section-title section-title-spacing">Calculate Historic Crypto Price</h3>
             <CgCalculatorMain />
           </div>}
 

@@ -9,12 +9,14 @@
 .sort-button {
   background: none;
   border: none;
+  font-size: 2rem;
+  padding-right: 0;
   color: $grey;
   cursor: pointer;
 }
 
 .sort-button:hover {
-  color: $raspberry;
+  color: $blue;
 }
 
 

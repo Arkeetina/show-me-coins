@@ -8,6 +8,10 @@
   margin: 5rem 0;
   background-color: $light-grey;
   box-shadow: 1.5px 1.5px 1.2px 1.5px #00000026;
+  @media (max-width: 650px) {
+    width: 80vw;
+    overflow: scroll;
+  }
 }
 
 .table-section {
@@ -52,7 +56,7 @@
 
 .coin-table-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 150px);
 }
 
 

@@ -19,12 +19,12 @@ class SortButtons extends Component {
         >
           <i className="fas fa-angle-down" />
         </button>
-        {/* <button
+        <button
           className="sort-button"
           onClick={this.onUpArrowClick}
         >
           <i className="fas fa-angle-up" />
-        </button> */}
+        </button>
       </div>
     );
   }
