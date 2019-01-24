@@ -6,7 +6,7 @@ import Header from './Header';
 import getCurrentPriceSelector from '../selectors/getCurrentPriceSelector';
 import getHistoricalValueSelector from '../selectors/getHistoricalValueSelector';
 import CgCalculatorMain from './CoinGuiltCalculator/CgCalculatorMain';
-// import CoinsTableMain from './CoinsTable/CoinsTableMain';
+import CoinsTableMain from './CoinsTable/CoinsTableMain';
 import CgCalculatorResult from '../components/CoinGuiltCalculator/CgCalculatorResult';
 import Footer from './Footer';
 
@@ -20,12 +20,25 @@ const MainPage = ({
   currentMonth,
   currentYear,
   displayResult,
+  appMode,
 }) => (
   <div className="box-layout">
     <Header />
     <div className="main-container">
       <div className="container">
-        <CgCalculatorMain />
+
+        {appMode === 'calculator' &&
+          <div>
+            <h3 className="section-title section-title-spacing">Calculate historic crypto price</h3>
+            <CgCalculatorMain />
+          </div>}
+
+        {appMode === 'prices' &&
+          <div>
+            <h3 className="section-title section-title-spacing">Current Crypto Prices</h3>
+            <CoinsTableMain />
+          </div>}
+
       </div>
     </div>
     {displayResult &&
@@ -55,6 +68,7 @@ const mapStateToProps = (state) => {
     rates: state.coinsData,
     coinsHistoricalData,
     selectedCoinData,
+    appMode: state.coinsUI.appMode,
     currentYear: selectedYearData.year,
     currentMonth: selectedMonthData.monthId,
     currentPrice:
@@ -67,6 +81,7 @@ const mapStateToProps = (state) => {
 };
 
 MainPage.propTypes = {
+  appMode: PropTypes.string.isRequired,
   inputedValue: PropTypes.number.isRequired,
   currentPrice: PropTypes.number.isRequired,
   historicPrice: PropTypes.number.isRequired,

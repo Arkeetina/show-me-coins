@@ -7,14 +7,17 @@ const CoinItem = ({
   price_usd,
   market_cap_usd,
   percent_change_24h,
-}) => (
-  <div className="coin-table-row">
-    <div className="coin-table-cell">{name}</div>
-    <div className="coin-table-cell"><span className="coin-table-row-text">{numeral(+price_usd).format('0.00')} $</span></div>
-    <div className={(+percent_change_24h > 0) ? 'coin-table-cell green' : 'coin-table-cell red'}>{percent_change_24h}%</div>
-    <div className="coin-table-cell">$ {numeral(market_cap_usd).format('a')}</div>
-  </div>
-);
+}) => {
+  const isPercentNegative = +percent_change_24h < 0;
+  return (
+    <div className="coin-table-row">
+      <div className="coin-table-cell">{name}</div>
+      <div className="coin-table-cell"><span className="coin-table-row-text">$ {numeral(+price_usd).format('0.00')}</span></div>
+      <div className="coin-table-cell">$ {numeral(market_cap_usd).format('a')}</div>
+      <div className={!isPercentNegative ? 'coin-table-cell green' : 'coin-table-cell red'}>{!isPercentNegative ? '+' : ''}{percent_change_24h}%</div>
+    </div>
+  );
+};
 
 
 CoinItem.propTypes = {

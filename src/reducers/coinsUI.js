@@ -1,27 +1,23 @@
 import {
-  SHOW_TOOLTIP,
-  HIDE_TOOLTIP,
+  SET_APP_MODE_TO_CALCULATOR,
+  SET_APP_MODE_TO_PRICES,
 } from '../actions/types';
 
 const INITIAL_COIN_UI_STATE = {
-  tooltipisHidden: true,
-  text: '',
+  appMode: 'calculator',
 };
 
 export default (state = INITIAL_COIN_UI_STATE, action) => {
   switch (action.type) {
-    case SHOW_TOOLTIP:
+    case SET_APP_MODE_TO_CALCULATOR:
       return {
         ...state,
-        tooltipisHidden: false,
-        text: action.symbol,
-        offSetTop: action.textOffSetTop,
+        appMode: 'calculator',
       };
-    case HIDE_TOOLTIP:
+    case SET_APP_MODE_TO_PRICES:
       return {
         ...state,
-        tooltipisHidden: true,
-        text: '',
+        appMode: 'prices',
       };
     default:
       return state;

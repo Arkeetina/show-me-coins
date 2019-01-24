@@ -1,11 +1,10 @@
-import { SHOW_TOOLTIP, HIDE_TOOLTIP } from './types';
+import { SET_APP_MODE_TO_CALCULATOR, SET_APP_MODE_TO_PRICES } from './types';
 
-export const showTooltip = (symbol, textOffSetTop) => ({
-  type: SHOW_TOOLTIP,
-  symbol,
-  textOffSetTop,
+
+export const setAppModeToCalculator = () => ({
+  type: SET_APP_MODE_TO_CALCULATOR,
 });
 
-export const hideTooltip = () => ({
-  type: HIDE_TOOLTIP,
+export const setAppModeToPrices = () => ({
+  type: SET_APP_MODE_TO_PRICES,
 });

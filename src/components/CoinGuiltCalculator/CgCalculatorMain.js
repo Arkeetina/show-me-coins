@@ -65,7 +65,6 @@ class CgCalculatorMain extends Component {
       <Fragment>
         <section className="calculator-section">
           <div className="cg-calculator-background">
-            <h3 className="section-title section-title-spacing">Calculate historic crypto price </h3>
             <div className="cg-calculator-container">
               <div className="cg-calculator-row input-value-row cg-calculator-text">
                 <p className="cg-calculator-text-spacing"> Amount</p>

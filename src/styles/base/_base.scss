@@ -34,7 +34,7 @@ button:focus {
   max-width: 94%;
   margin: 0px auto;
   @media (min-width: $desktop-breakpoint) {
-    max-width: 74%;
+    max-width: 78%;
   }
 }
 .green {
@@ -61,8 +61,8 @@ button:focus {
 
 .section-title-spacing {
   text-align: center;
-  margin-top: 0;
-  margin-bottom: $l-size;
+  margin-bottom: 0;
+  margin-top: 7rem;
 }
 
 select {

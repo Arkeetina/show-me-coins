@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import SearchBar from '../common/SearchBar';
 import SortButtons from '../common/SortButtons';
 import {
   sortByNameAscending,
@@ -32,7 +31,6 @@ class CoinsListFilter extends Component {
   onSortByPriceUsdDescending = () => {
     this.props.sortByPriceUsdDescending();
   }
-  
 
   // Market Cap
   onSortByMarketCapAscending = () => {
@@ -55,21 +53,29 @@ class CoinsListFilter extends Component {
   render() {
     return (
       <div className="coin-table-head">
+
         <div className="coin-table-head-cell">
           <span className="coin-table-head-text">Name</span>
-          <SortButtons
+          {/* <SortButtons
             onUpArrowClick={this.onSortByNameAscending}
             onDownArrowClick={this.onSortByNameDescending}
-          />
-          
+          /> */}
         </div>
+
         <div className="coin-table-head-cell">
           <span className="coin-table-head-text">Price</span>
           <SortButtons
             onUpArrowClick={this.onSortByPriceUsdAscending}
             onDownArrowClick={this.onSortByPriceUsdDescending}
           />
-          
+        </div>
+
+        <div className="coin-table-head-cell">
+          <span className="coin-table-head-text">Market Cap</span>
+          <SortButtons
+            onUpArrowClick={this.onSortByMarketCapAscending}
+            onDownArrowClick={this.onSortByMarketCapDescending}
+          />
         </div>
 
         <div className="coin-table-head-cell">
@@ -78,16 +84,8 @@ class CoinsListFilter extends Component {
             onUpArrowClick={this.onSortByPerChangeAscending}
             onDownArrowClick={this.onSortByPerChangeDescending}
           />
-          
         </div>
-        <div className="coin-table-head-cell">
-          <span className="coin-table-head-text">Market Cap</span>
-          <SortButtons
-            onUpArrowClick={this.onSortByMarketCapAscending}
-            onDownArrowClick={this.onSortByMarketCapDescending}
-          />
-          
-        </div>
+
       </div>
     );
   }
