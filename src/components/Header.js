@@ -5,7 +5,13 @@ import PropTypes from 'prop-types';
 import { setAppModeToCalculator, setAppModeToPrices } from '../actions/coinsUI';
 import { hideResult } from '../actions/coinsCalculator';
 
-const Header = ({ appMode, setModeToCalculator, setModeToPrices, hideRes, displayResult }) => (
+const Header = ({
+  appMode,
+  setModeToCalculator,
+  setModeToPrices,
+  hideRes,
+  displayResult,
+}) => (
   <header className="header-section">
     <div className="container header-container">
       <h1>CRYPTO HISTORICAL CALCULATOR</h1>
@@ -31,7 +37,7 @@ const Header = ({ appMode, setModeToCalculator, setModeToPrices, hideRes, displa
 
 const mapStateToProps = state => ({
   appMode: state.coinsUI.appMode,
-  displayResult: state.,
+  displayResult: state.coinsCalculator.displayResult,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -42,6 +48,8 @@ const mapDispatchToProps = dispatch => ({
 
 Header.propTypes = {
   appMode: PropTypes.string.isRequired,
+  displayResult: PropTypes.bool.isRequired,
+  hideRes: PropTypes.func.isRequired,
   setModeToPrices: PropTypes.func.isRequired,
   setModeToCalculator: PropTypes.func.isRequired,
 };
