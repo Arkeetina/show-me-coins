@@ -1,4 +1,11 @@
-import { SET_COIN_TYPE, SET_COIN_YEAR, SET_COIN_MONTH, SET_COIN_VALUE, SHOW_RESULT } from '../actions/types';
+import {
+  SET_COIN_TYPE,
+  HIDE_RESULT,
+  SET_COIN_YEAR,
+  SET_COIN_MONTH,
+  SET_COIN_VALUE,
+  SHOW_RESULT,
+} from '../actions/types';
 import coinsHistoricalData from '../dummy_data/coinsHistoricalData';
 
 const INITIAL_COIN_CALCULATOR_STATE = {
@@ -37,6 +44,11 @@ export default (state = INITIAL_COIN_CALCULATOR_STATE, action) => {
       return {
         ...state,
         inputedValue: action.payload,
+        displayResult: false,
+      };
+    case HIDE_RESULT:
+      return {
+        ...state,
         displayResult: false,
       };
     case SHOW_RESULT:

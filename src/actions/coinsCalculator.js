@@ -4,6 +4,7 @@ import {
   SET_COIN_VALUE,
   SET_COIN_MONTH,
   SHOW_RESULT,
+  HIDE_RESULT,
 } from './types';
 
 export const selectCoinType = coinType => ({
@@ -28,4 +29,8 @@ export const setDollarValue = inputedDollarValue => ({
 
 export const showResult = () => ({
   type: SHOW_RESULT,
+});
+
+export const hideResult = () => ({
+  type: HIDE_RESULT,
 });

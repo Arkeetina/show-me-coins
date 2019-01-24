@@ -1,7 +1,5 @@
 // coin data
 export const FETCH_COIN = 'FETCH_COIN';
-export const SHOW_TOOLTIP = 'SHOW_TOOLTIP';
-export const HIDE_TOOLTIP = 'HIDE_TOOLTIP';
 
 // coin filters
 export const SORT_BY_NAME_ASCENDING = 'SORT_BY_NAME_ASCENDING';
@@ -21,6 +19,7 @@ export const SET_COIN_YEAR = 'SET_COIN_YEAR';
 export const SET_COIN_MONTH = 'SET_COIN_MONTH';
 export const SET_COIN_VALUE = 'SET_COIN_VALUE';
 export const SHOW_RESULT = 'SHOW_RESULT';
+export const HIDE_RESULT = 'HIDE_RESULT';
 
 // UI
 export const SET_APP_MODE_TO_CALCULATOR = 'SET_APP_MODE_CALCULATOR';

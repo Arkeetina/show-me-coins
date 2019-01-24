@@ -64,54 +64,52 @@ class CgCalculatorMain extends Component {
     return (
       <Fragment>
         <section className="calculator-section">
-          <div className="cg-calculator-background">
-            <div className="cg-calculator-container">
-              <div className="cg-calculator-row input-value-row cg-calculator-text">
-                <p className="cg-calculator-text-spacing"> Amount</p>
-                <div className="cg-calculator-input-container">
-                  <input
-                    type="text"
-                    className={this.state.error ? `${inputClass} text-input__error` : inputClass}
-                    placeholder="USD $"
-                    id="cryptosetDollarValue"
-                    onChange={this.onChangeValueInput}
-                  />
-                  {this.state.error && <p className="cg__error cg__error-spacing">{this.state.error}</p>}
-                </div>
-
+          <div className="cg-calculator-container">
+            <div className="cg-calculator-row input-value-row cg-calculator-text">
+              <p className="cg-calculator-text-spacing"> Amount</p>
+              <div className="cg-calculator-input-container">
+                <input
+                  type="text"
+                  className={this.state.error ? `${inputClass} text-input__error` : inputClass}
+                  placeholder="USD $"
+                  id="cryptosetDollarValue"
+                  onChange={this.onChangeValueInput}
+                />
+                {this.state.error && <p className="cg__error cg__error-spacing">{this.state.error}</p>}
               </div>
 
-              <div className="cg-calculator-row select-crypto-row cg-calculator-text">
-                <p className="cg-calculator-text-spacing extra-margin"> Cryptocurrency </p>
+            </div>
 
-                <div className="cg-calculator-input-container">
-                  <CgCalculatorCoinTypesList
-                    coinsHistoricalData={coinsHistoricalData}
-                    onChangeCoin={this.onChangeSelectedCoin}
-                  />
-                </div>
+            <div className="cg-calculator-row select-crypto-row cg-calculator-text">
+              <p className="cg-calculator-text-spacing extra-margin"> Cryptocurrency </p>
+
+              <div className="cg-calculator-input-container">
+                <CgCalculatorCoinTypesList
+                  coinsHistoricalData={coinsHistoricalData}
+                  onChangeCoin={this.onChangeSelectedCoin}
+                />
+              </div>
+            </div>
+
+            <div className="cg-calculator-row select-date-row cg-calculator-text">
+              <p className="cg-calculator-text-spacing">Date</p>
+              <div className="cg-calculator-input-container">
+                <CgCalculatorMonthsList
+                  monthsData={selectedYearData.monthPrices}
+                  onChangeMonth={this.onChangeSelectedMonth}
+                  selectedMonth={currentMonth}
+                />
+                <CgCalculatorYearsList
+                  historicData={selectedCoinData.historicData}
+                  onChangeYear={this.onChangeSelectedYear}
+                  selectedYear={currentYear}
+                />
               </div>
 
-              <div className="cg-calculator-row select-date-row cg-calculator-text">
-                <p className="cg-calculator-text-spacing">Date</p>
-                <div className="cg-calculator-input-container">
-                  <CgCalculatorMonthsList
-                    monthsData={selectedYearData.monthPrices}
-                    onChangeMonth={this.onChangeSelectedMonth}
-                    selectedMonth={currentMonth}
-                  />
-                  <CgCalculatorYearsList
-                    historicData={selectedCoinData.historicData}
-                    onChangeYear={this.onChangeSelectedYear}
-                    selectedYear={currentYear}
-                  />
-                </div>
+            </div>
 
-              </div>
-
-              <div className="cg-calculator-button-container">
-                <button className="button cg-calculator-button" onClick={this.onClickShowButton}>CALCULATE</button>
-              </div>
+            <div className="cg-calculator-button-container">
+              <button className="button cg-calculator-button" onClick={this.onClickShowButton}>CALCULATE</button>
             </div>
           </div>
         </section>

@@ -9,8 +9,11 @@
   background-color: $light-grey;
   box-shadow: 1.5px 1.5px 1.2px 1.5px #00000026;
   @media (max-width: 650px) {
-    width: 80vw;
+    width: 94vw;
     overflow: scroll;
+  }
+  @media (max-width: 340px) {
+    margin: 35px 0;
   }
 }
 

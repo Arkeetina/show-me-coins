@@ -15,13 +15,13 @@ import {
 
 class CoinsListFilter extends Component {
   // Name
-  onSortByNameAscending = () => {
-    this.props.sortByNameAscending();
-  };
+  // onSortByNameAscending = () => {
+  //   this.props.sortByNameAscending();
+  // };
 
-  onSortByNameDescending = () => {
-    this.props.sortByNameDescending();
-  };
+  // onSortByNameDescending = () => {
+  //   this.props.sortByNameDescending();
+  // };
 
   // Price
   onSortByPriceUsdAscending = () => {
