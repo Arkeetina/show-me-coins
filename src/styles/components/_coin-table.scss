@@ -30,7 +30,7 @@
   display: grid;
   text-align: left;
   padding: 0 $ml-size $xs-size $ml-size;
-  grid-template-columns: repeat(4, 167px);
+  grid-template-columns: repeat(4, 170px);
 }
 
 .coin-table-head-cell {
@@ -64,7 +64,7 @@
 
 .coin-table-row {
   display: grid;
-  grid-template-columns: repeat(4, 167px);
+  grid-template-columns: repeat(4, 170px);
 }
 
 
