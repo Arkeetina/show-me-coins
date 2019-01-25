@@ -11,12 +11,15 @@
   padding: 0.5rem;
   border-radius: 3px;
   text-decoration: none;
+  transition: all 0.2s;
   cursor: pointer;
   &:hover {
     background-color: #3f455f;
+    transition: all 0.2s;
   }
   &:focus {
     background-color: #3f455f;
+    transition: all 0.2s;
   }
 }
 

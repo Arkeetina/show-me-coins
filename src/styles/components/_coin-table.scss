@@ -1,5 +1,6 @@
 .coin-table-container {
   background: none;
+  // transition: all 1s ease-in-out;
   font-weight: 500;
   font-size: $m-size;
   border-radius: 4px;
@@ -55,6 +56,10 @@
   padding: $s-size $ml-size;
   grid-template-columns: repeat(1, 1fr);
   grid-column-gap: 0.5rem;
+  @media (max-width: 650px) {
+    border: none;
+    background-color: transparent;
+  }
 }
 
 .coin-table-row {

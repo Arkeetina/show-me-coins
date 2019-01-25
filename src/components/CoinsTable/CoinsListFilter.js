@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import SortButtons from '../common/SortButtons';
 import {
-  sortByNameAscending,
-  sortByNameDescending,
   sortByPriceUsdAscending,
   sortByPriceUsdDescending,
   sortByMarketCapAscending,
@@ -14,15 +13,6 @@ import {
 } from '../../actions/coinsFilters';
 
 class CoinsListFilter extends Component {
-  // Name
-  // onSortByNameAscending = () => {
-  //   this.props.sortByNameAscending();
-  // };
-
-  // onSortByNameDescending = () => {
-  //   this.props.sortByNameDescending();
-  // };
-
   // Price
   onSortByPriceUsdAscending = () => {
     this.props.sortByPriceUsdAscending();
@@ -56,10 +46,6 @@ class CoinsListFilter extends Component {
 
         <div className="coin-table-head-cell">
           <span className="coin-table-head-text">Name</span>
-          {/* <SortButtons
-            onUpArrowClick={this.onSortByNameAscending}
-            onDownArrowClick={this.onSortByNameDescending}
-          /> */}
         </div>
 
         <div className="coin-table-head-cell">
@@ -92,8 +78,6 @@ class CoinsListFilter extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  sortByNameAscending: () => dispatch(sortByNameAscending()),
-  sortByNameDescending: () => dispatch(sortByNameDescending()),
   sortByPriceUsdAscending: () => dispatch(sortByPriceUsdAscending()),
   sortByPriceUsdDescending: () => dispatch(sortByPriceUsdDescending()),
   sortByMarketCapAscending: () => dispatch(sortByMarketCapAscending()),
@@ -101,5 +85,14 @@ const mapDispatchToProps = dispatch => ({
   sortByPerChangeAscending: () => dispatch(sortByPerChangeAscending()),
   sortByPerChangeDescending: () => dispatch(sortByPerChangeDescending()),
 });
+
+CoinsListFilter.propTypes = {
+  sortByPriceUsdAscending: PropTypes.func.isRequired,
+  sortByPriceUsdDescending: PropTypes.func.isRequired,
+  sortByMarketCapAscending: PropTypes.func.isRequired,
+  sortByMarketCapDescending: PropTypes.func.isRequired,
+  sortByPerChangeAscending: PropTypes.func.isRequired,
+  sortByPerChangeDescending: PropTypes.func.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(CoinsListFilter);

@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { setAppModeToCalculator, setAppModeToPrices } from '../actions/coinsUI';
-import { hideResult } from '../actions/coinsCalculator';
+import { hideResult, setDollarValue } from '../actions/coinsCalculator';
 
 const Header = ({
   appMode,
   setModeToCalculator,
   setModeToPrices,
+  setInputValue,
   hideRes,
   displayResult,
 }) => (
@@ -19,7 +20,10 @@ const Header = ({
         <button
           className="header-mode-button"
           onClick={() => {
-            if (displayResult) hideRes();
+            if (displayResult) {
+              hideRes();
+              setInputValue(0);
+            }
             setModeToPrices();
           }}
         >
@@ -42,12 +46,14 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   hideRes: () => dispatch(hideResult()),
+  setInputValue: value => dispatch(setDollarValue(value)),
   setModeToCalculator: () => dispatch(setAppModeToCalculator()),
   setModeToPrices: () => dispatch(setAppModeToPrices()),
 });
 
 Header.propTypes = {
   appMode: PropTypes.string.isRequired,
+  setInputValue: PropTypes.string.isRequired,
   displayResult: PropTypes.bool.isRequired,
   hideRes: PropTypes.func.isRequired,
   setModeToPrices: PropTypes.func.isRequired,
