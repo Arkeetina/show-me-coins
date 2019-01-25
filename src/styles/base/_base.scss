@@ -54,7 +54,6 @@ button:focus {
 }
 
 .section-title {
-  // transition: all 1s ease-in-out;
   font-weight: 300;
   color: $white;
   font-size: $l-size;
@@ -71,6 +70,10 @@ button:focus {
 
 select {
   -webkit-appearance: none;
+}
+
+.box-layout {
+  background-color: $dark-navy;
 }
 
 .main-container {

@@ -9,7 +9,7 @@
   margin: 5rem 0;
   background-color: $light-grey;
   box-shadow: 1.5px 1.5px 1.2px 1.5px #00000026;
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     width: 94vw;
     overflow: scroll;
   }
@@ -30,7 +30,7 @@
   display: grid;
   text-align: left;
   padding: 0 $ml-size $xs-size $ml-size;
-  grid-template-columns: repeat(4, 150px);
+  grid-template-columns: repeat(4, 160px);
 }
 
 .coin-table-head-cell {
@@ -64,7 +64,7 @@
 
 .coin-table-row {
   display: grid;
-  grid-template-columns: repeat(4, 150px);
+  grid-template-columns: repeat(4, 160px);
 }
 
 

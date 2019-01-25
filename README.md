@@ -3,7 +3,7 @@
 
 ## Demo
 
-https://show-me-coins.herokuapp.com
+https://crypto-calculator.netlify.com/
 
 ## Built With/Tech Stack
 React/Redux
