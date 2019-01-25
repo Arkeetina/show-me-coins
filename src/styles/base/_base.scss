@@ -6,6 +6,11 @@ html {
   font-size: 62.5%;
 }
 
+h1,h2,h3,h4,h5,h6,p,div,ul,li,ol,table,td,tr,body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   color: $dark-grey;
   font-family: 'Raleway', sans-serif;
@@ -57,14 +62,21 @@ button:focus {
   font-weight: 300;
   color: $white;
   font-size: $l-size;
+
+  @media (max-width: 440px) {
+    font-size: 2.6rem;
+  }
+
+  @media (max-width: 390px) {
+    font-size: 2.1rem;
+  }
 }
 
 .section-title-spacing {
   text-align: center;
   margin-bottom: 0;
-  margin-top: 7rem;
   @media (max-width: 390px) {
-    margin-top: 3rem;
+    margin: 0;
   }
 }
 
@@ -80,12 +92,13 @@ select {
   background-color: $dark-navy;
   background: url('/images/background.jpeg');
   background-size: cover;
-  display: flex;
   color: $grey;
   width: 100%;
+  padding: 30px 0px;
 
   @media (max-width: 340px) {
     min-height: 80vh;
+    padding: 10px 0px;
   }
 
   @media (min-width: 360px) {
