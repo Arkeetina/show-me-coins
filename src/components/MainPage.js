@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import getCurrentPriceSelector from '../selectors/getCurrentPriceSelector';
 import getHistoricalValueSelector from '../selectors/getHistoricalValueSelector';
-import CgCalculatorMain from './CoinGuiltCalculator/CgCalculatorMain';
+import CalculatorMain from './CoinGuiltCalculator/CalculatorMain';
 import CoinsTableMain from './CoinsTable/CoinsTableMain';
-import CgCalculatorResult from '../components/CoinGuiltCalculator/CgCalculatorResult';
+import CalculatorResult from '../components/CoinGuiltCalculator/CalculatorResult';
 import Footer from './Footer';
 
 // <CoinsTableMain />
@@ -30,7 +30,7 @@ const MainPage = ({
         {appMode === 'calculator' &&
           <div className="mode-container">
             <h3 className="section-title section-title-spacing">Calculate Historic Crypto Price</h3>
-            <CgCalculatorMain />
+            <CalculatorMain />
           </div>}
 
         {appMode === 'prices' &&
@@ -38,18 +38,17 @@ const MainPage = ({
             <h3 className="section-title section-title-spacing">Current Crypto Prices</h3>
             <CoinsTableMain />
           </div>}
-
       </div>
-      {displayResult &&
-        <CgCalculatorResult
-          inputedValue={inputedValue}
-          currentPrice={currentPrice}
-          historicPrice={historicPrice}
-          coinType={selectedCoinData.name}
-          monthNumber={currentMonth}
-          yearNumber={currentYear}
-        />}
     </div>
+    {displayResult &&
+      <CalculatorResult
+        inputedValue={inputedValue}
+        currentPrice={currentPrice}
+        historicPrice={historicPrice}
+        coinType={selectedCoinData.name}
+        monthNumber={currentMonth}
+        yearNumber={currentYear}
+      />}
     <Footer />
   </div>
 );

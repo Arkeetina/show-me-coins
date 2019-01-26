@@ -6,11 +6,11 @@ import find from 'lodash.find';
 import { selectCoinType, selectCoinYear, selectCoinMonth, setDollarValue, showResult } from '../../actions/coinsCalculator';
 import getCurrentPriceSelector from '../../selectors/getCurrentPriceSelector';
 import getHistoricalValueSelector from '../../selectors/getHistoricalValueSelector';
-import CgCalculatorCoinTypesList from './CgCalculatorCoinTypesList';
-import CgCalculatorYearsList from './CgCalculatorYearsList';
-import CgCalculatorMonthsList from './CgCalculatorMonthsList';
+import CalculatorCoinTypesList from './CalculatorCoinTypesList';
+import CalculatorYearsList from './CalculatorYearsList';
+import CalculatorMonthsList from './CalculatorMonthsList';
 
-class CgCalculatorMain extends Component {
+class CalculatorMain extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,7 +56,7 @@ class CgCalculatorMain extends Component {
   }
 
   render() {
-    const inputClass = 'cg-calculator-form-element text-input';
+    const inputClass = 'calculator-form-element text-input';
 
     const {
       selectedCoinData,
@@ -68,10 +68,10 @@ class CgCalculatorMain extends Component {
     return (
       <Fragment>
         <section className="calculator-section">
-          <div className="cg-calculator-container">
-            <div className="cg-calculator-row input-value-row cg-calculator-text">
-              <p className="cg-calculator-text-spacing"> Amount</p>
-              <div className="cg-calculator-input-container">
+          <div className="calculator-container">
+            <div className="calculator-row input-value-row calculator-text">
+              <p className="calculator-text-spacing"> Amount</p>
+              <div className="calculator-input-container">
                 <input
                   type="text"
                   className={this.state.error ? `${inputClass} text-input__error` : inputClass}
@@ -79,31 +79,31 @@ class CgCalculatorMain extends Component {
                   id="cryptosetDollarValue"
                   onChange={this.onChangeValueInput}
                 />
-                {this.state.error && <p className="cg__error cg__error-spacing">{this.state.error}</p>}
+                {this.state.error && <p className="calculator-error calculator-error-spacing">{this.state.error}</p>}
               </div>
 
             </div>
 
-            <div className="cg-calculator-row select-crypto-row cg-calculator-text">
-              <p className="cg-calculator-text-spacing extra-margin"> Cryptocurrency </p>
+            <div className="calculator-row select-crypto-row calculator-text">
+              <p className="calculator-text-spacing extra-margin"> Cryptocurrency </p>
 
-              <div className="cg-calculator-input-container">
-                <CgCalculatorCoinTypesList
+              <div className="calculator-input-container">
+                <CalculatorCoinTypesList
                   coinsHistoricalData={coinsHistoricalData}
                   onChangeCoin={this.onChangeSelectedCoin}
                 />
               </div>
             </div>
 
-            <div className="cg-calculator-row select-date-row cg-calculator-text">
-              <p className="cg-calculator-text-spacing">Date</p>
-              <div className="cg-calculator-input-container">
-                <CgCalculatorMonthsList
+            <div className="calculator-row select-date-row calculator-text">
+              <p className="calculator-text-spacing">Date</p>
+              <div className="calculator-input-container">
+                <CalculatorMonthsList
                   monthsData={selectedYearData.monthPrices}
                   onChangeMonth={this.onChangeSelectedMonth}
                   selectedMonth={currentMonth}
                 />
-                <CgCalculatorYearsList
+                <CalculatorYearsList
                   historicData={selectedCoinData.historicData}
                   onChangeYear={this.onChangeSelectedYear}
                   selectedYear={currentYear}
@@ -112,8 +112,8 @@ class CgCalculatorMain extends Component {
 
             </div>
 
-            <div className="cg-calculator-button-container">
-              <button className="button cg-calculator-button" onClick={this.onClickShowButton}>CALCULATE</button>
+            <div className="calculator-button-container">
+              <button className="button calculator-button" onClick={this.onClickShowButton}>CALCULATE</button>
             </div>
           </div>
         </section>
@@ -161,7 +161,7 @@ const HistoricData = {
   monthPrices: PropTypes.number,
 };
 
-CgCalculatorMain.propTypes = {
+CalculatorMain.propTypes = {
   coinsHistoricalData: PropTypes.arrayOf(HistoricData).isRequired,
   selectedCoinData: PropTypes.shape({}).isRequired,
   selectedYearData: PropTypes.shape({}).isRequired,
@@ -176,4 +176,4 @@ CgCalculatorMain.propTypes = {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CgCalculatorMain);
+export default connect(mapStateToProps, mapDispatchToProps)(CalculatorMain);

@@ -39,7 +39,7 @@ button:focus {
   max-width: 94%;
   margin: 0px auto;
   @media (min-width: $desktop-breakpoint) {
-    max-width: 78%;
+    max-width: 90%;
   }
 }
 .green {
@@ -94,22 +94,24 @@ select {
   background-size: cover;
   color: $grey;
   width: 100%;
-  padding: 30px 0px;
-
-  @media (max-width: 340px) {
-    min-height: 80vh;
-    padding: 10px 0px;
-  }
+  min-height: 80vh;
+  padding: 5rem 0;
 
   @media (min-width: 360px) {
-    min-height: 85vh;
+    min-height: 72vh;
   }
 
   @media (min-width: 480px) {
-    min-height: 75vh;
+    min-height: 78vh;
   }
-  @media (min-width: $desktop-breakpoint) {
-    min-height: 79vh;
+  @media (min-width: 580px) {
+    min-height: 84vh;
+    padding: 10rem 0;
+  }
+
+  @media (min-height: 1100px) {
+    min-height: 88vh;
+    padding: 20rem 0;
   }
 }
 
