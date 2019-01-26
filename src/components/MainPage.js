@@ -40,16 +40,16 @@ const MainPage = ({
           </div>}
 
       </div>
+      {displayResult &&
+        <CgCalculatorResult
+          inputedValue={inputedValue}
+          currentPrice={currentPrice}
+          historicPrice={historicPrice}
+          coinType={selectedCoinData.name}
+          monthNumber={currentMonth}
+          yearNumber={currentYear}
+        />}
     </div>
-    {displayResult &&
-      <CgCalculatorResult
-        inputedValue={inputedValue}
-        currentPrice={currentPrice}
-        historicPrice={historicPrice}
-        coinType={selectedCoinData.name}
-        monthNumber={currentMonth}
-        yearNumber={currentYear}
-      />}
     <Footer />
   </div>
 );

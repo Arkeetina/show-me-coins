@@ -15,7 +15,7 @@ const Header = ({
 }) => (
   <header className="header-section">
     <div className="container header-container">
-      <h1>CRYPTO HISTORICAL CALCULATOR</h1>
+      <h1 className="logo-text">CRYPTO HISTORICAL CALCULATOR</h1>
       {(appMode === 'calculator') &&
         <button
           className="header-mode-button"
