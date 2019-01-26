@@ -24,7 +24,7 @@
 // }
 
 input::placeholder {
-  color: $dark-navy;
+  color: $light-black;
   @media (min-width: $tablet-breakpoint) {
     font-size: 1.7rem;
   }
@@ -38,7 +38,7 @@ select, option {
 
 select {
   border: 1px solid $grey;
-  color: $dark-navy;
+  color: $light-black;
 }
 
 select.cg-calculator-form-element {

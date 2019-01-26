@@ -1,17 +1,17 @@
 .coin-table-container {
   background: none;
   // transition: all 1s ease-in-out;
+  max-width: 700px;
+  margin: 5rem auto;
   font-weight: 500;
   font-size: $m-size;
   border-radius: 4px;
   padding: $ml-size 0;
   color: $dark-navy;
-  margin: 5rem 0;
   background-color: $light-grey;
   box-shadow: 1.5px 1.5px 1.2px 1.5px #00000026;
   @media (max-width: 768px) {
     width: 94vw;
-    overflow: scroll;
   }
   @media (max-width: 340px) {
     margin: 35px 0;
@@ -19,7 +19,7 @@
 }
 
 .table-section {
-  display: flex;
+  overflow: hidden;
 }
 
 .coin-table-title {
