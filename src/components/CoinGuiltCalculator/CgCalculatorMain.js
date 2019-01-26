@@ -47,12 +47,16 @@ class CgCalculatorMain extends Component {
     } else {
       this.setState(() => ({ error: '' }));
       this.props.showResult();
+      window.scrollTo({ // eslint-disable-line
+        top: document.body.scrollHeight, // eslint-disable-line
+        bottom: 0,
+        behavior: 'smooth',
+      });
     }
   }
 
   render() {
     const inputClass = 'cg-calculator-form-element text-input';
-    // const symbolClass = 'cg-calculator-form-symbol';
 
     const {
       selectedCoinData,
