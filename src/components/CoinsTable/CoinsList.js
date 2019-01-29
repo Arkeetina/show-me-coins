@@ -20,7 +20,12 @@ const mapStateToProps = state => ({
 });
 
 CoinsList.propTypes = {
-  rates: PropTypes.shape({}).isRequired,
+  rates: PropTypes.arrayOf(PropTypes.shape({
+    price_usd: PropTypes.string.isRequired,
+    market_cap_usd: PropTypes.string.isRequired,
+    percent_change_24h: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 

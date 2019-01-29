@@ -34,6 +34,13 @@ p.footer-end {
     padding-top: 10px;
     color: #dddddd;
 }
+.credit-link {
+    margin-left: $ml-size;
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+}
 
 .footer-bold-text {
     font-weight: 600;

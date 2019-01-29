@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
-import MainPage from '../components/MainPage';
+import MainPage from '../components/MainPage.tsx';
 import NotFoundPage from '../components/NotFoundPage';
 
 export const history = createHistory();

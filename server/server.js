@@ -6,6 +6,11 @@ const port = process.env.PORT || 3000;
 
 app.use(express.static(publicPath));
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("public/dist"));
+}
+
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });

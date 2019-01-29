@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn run-deverser
+  /usr/local/bin/node /usr/local/bin/yarn run dev-server
 
 PATH: 
   /anaconda3/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/anaconda3/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin
@@ -28,6 +28,9 @@ npm manifest:
       "heroku-postbuild": "yarn run build:prod"
     },
     "dependencies": {
+      "@babel/preset-typescript": "^7.1.0",
+      "@types/react": "^16.7.20",
+      "@types/react-dom": "^16.0.11",
       "axios": "^0.17.1",
       "babel-cli": "6.26.0",
       "babel-core": "6.26.3",
@@ -57,6 +60,8 @@ npm manifest:
       "redux-thunk": "^2.2.0",
       "sass-loader": "7.1.0",
       "style-loader": "0.23.1",
+      "ts-loader": "^5.3.3",
+      "typescript": "^3.2.4",
       "uuid": "3.1.0",
       "validator": "8.0.0",
       "webpack": "4.28.4"
@@ -121,6 +126,10 @@ Lockfile:
     dependencies:
       "@babel/types" "^7.0.0"
   
+  "@babel/helper-plugin-utils@^7.0.0":
+    version "7.0.0"
+    resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.0.0.tgz#bbb3fbee98661c569034237cc03967ba99b4f250"
+  
   "@babel/helper-split-export-declaration@^7.0.0":
     version "7.0.0"
     resolved "https://registry.yarnpkg.com/@babel/helper-split-export-declaration/-/helper-split-export-declaration-7.0.0.tgz#3aae285c0311c2ab095d997b8c9a94cad547d813"
@@ -138,6 +147,26 @@ Lockfile:
   "@babel/parser@^7.0.0", "@babel/parser@^7.2.2", "@babel/parser@^7.2.3":
     version "7.2.3"
     resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.2.3.tgz#32f5df65744b70888d17872ec106b02434ba1489"
+  
+  "@babel/plugin-syntax-typescript@^7.2.0":
+    version "7.2.0"
+    resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-typescript/-/plugin-syntax-typescript-7.2.0.tgz#55d240536bd314dcbbec70fd949c5cabaed1de29"
+    dependencies:
+      "@babel/helper-plugin-utils" "^7.0.0"
+  
+  "@babel/plugin-transform-typescript@^7.1.0":
+    version "7.2.0"
+    resolved "https://registry.yarnpkg.com/@babel/plugin-transform-typescript/-/plugin-transform-typescript-7.2.0.tgz#bce7c06300434de6a860ae8acf6a442ef74a99d1"
+    dependencies:
+      "@babel/helper-plugin-utils" "^7.0.0"
+      "@babel/plugin-syntax-typescript" "^7.2.0"
+  
+  "@babel/preset-typescript@^7.1.0":
+    version "7.1.0"
+    resolved "https://registry.yarnpkg.com/@babel/preset-typescript/-/preset-typescript-7.1.0.tgz#49ad6e2084ff0bfb5f1f7fb3b5e76c434d442c7f"
+    dependencies:
+      "@babel/helper-plugin-utils" "^7.0.0"
+      "@babel/plugin-transform-typescript" "^7.1.0"
   
   "@babel/runtime@^7.2.0":
     version "7.2.0"
@@ -178,6 +207,23 @@ Lockfile:
   "@types/node@*":
     version "9.3.0"
     resolved "https://registry.yarnpkg.com/@types/node/-/node-9.3.0.tgz#3a129cda7c4e5df2409702626892cb4b96546dd5"
+  
+  "@types/prop-types@*":
+    version "15.5.8"
+    resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.8.tgz#8ae4e0ea205fe95c3901a5a1df7f66495e3a56ce"
+  
+  "@types/react-dom@^16.0.11":
+    version "16.0.11"
+    resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.0.11.tgz#bd10ccb0d9260343f4b9a49d4f7a8330a5c1f081"
+    dependencies:
+      "@types/react" "*"
+  
+  "@types/react@*", "@types/react@^16.7.20":
+    version "16.7.20"
+    resolved "https://registry.yarnpkg.com/@types/react/-/react-16.7.20.tgz#13ae752c012710d0fa800985ca809814b51d3b58"
+    dependencies:
+      "@types/prop-types" "*"
+      csstype "^2.2.0"
   
   "@webassemblyjs/ast@1.7.11":
     version "1.7.11"
@@ -1645,7 +1691,7 @@ Lockfile:
       escape-string-regexp "^1.0.5"
       supports-color "^4.0.0"
   
-  chalk@^2.4.1, chalk@^2.4.2:
+  chalk@^2.3.0, chalk@^2.4.1, chalk@^2.4.2:
     version "2.4.2"
     resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
     dependencies:
@@ -2091,6 +2137,10 @@ Lockfile:
     dependencies:
       cssom "0.3.x"
   
+  csstype@^2.2.0:
+    version "2.6.1"
+    resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.1.tgz#4cfbf637a577497036ebcd7e32647ef19a0b8076"
+  
   currently-unhandled@^0.4.1:
     version "0.4.1"
     resolved "https://registry.yarnpkg.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
@@ -2424,7 +2474,7 @@ Lockfile:
     dependencies:
       once "^1.4.0"
   
-  enhanced-resolve@^4.1.0:
+  enhanced-resolve@^4.0.0, enhanced-resolve@^4.1.0:
     version "4.1.0"
     resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-4.1.0.tgz#41c7e0bfdfe74ac1ffe1e57ad6a5c6c9f3742a7f"
     dependencies:
@@ -6472,7 +6522,7 @@ Lockfile:
     version "5.5.0"
     resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
   
-  semver@^5.5.0, semver@^5.6.0:
+  semver@^5.0.1, semver@^5.5.0, semver@^5.6.0:
     version "5.6.0"
     resolved "https://registry.yarnpkg.com/semver/-/semver-5.6.0.tgz#7e74256fbaa49c75aa7c7a205cc22799cac80004"
   
@@ -7126,6 +7176,16 @@ Lockfile:
     dependencies:
       glob "^7.1.2"
   
+  ts-loader@^5.3.3:
+    version "5.3.3"
+    resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-5.3.3.tgz#8b4af042e773132d86b3c99ef0acf3b4d325f473"
+    dependencies:
+      chalk "^2.3.0"
+      enhanced-resolve "^4.0.0"
+      loader-utils "^1.0.2"
+      micromatch "^3.1.4"
+      semver "^5.0.1"
+  
   tslib@^1.9.0:
     version "1.9.3"
     resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
@@ -7160,6 +7220,10 @@ Lockfile:
   typedarray@^0.0.6:
     version "0.0.6"
     resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
+  
+  typescript@^3.2.4:
+    version "3.2.4"
+    resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.2.4.tgz#c585cb952912263d915b462726ce244ba510ef3d"
   
   ua-parser-js@^0.7.9:
     version "0.7.17"
@@ -7722,14 +7786,16 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Command "run-deverser" not found.
-      at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:86874:17
-      at Generator.next (<anonymous>)
-      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:116:14
-      at new Promise (<anonymous>)
-      at new F (/usr/local/lib/node_modules/yarn/lib/cli.js:23457:28)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:95:12
-      at runCommand (/usr/local/lib/node_modules/yarn/lib/cli.js:86879:22)
-      at Object.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:86979:14)
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c webpack-dev-server
+  Directory: /Users/katerina.bezlepkina/Projects/show-me-coins
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30822:17)
+      at ChildProcess.emit (events.js:182:13)
+      at maybeClose (internal/child_process.js:961:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:248:5)

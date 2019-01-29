@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const CalculatorResult = ({
   inputedValue,
@@ -21,6 +22,15 @@ const CalculatorResult = ({
       </p>
     </div>
   );
+};
+
+CalculatorResult.propTypes = {
+  inputedValue: PropTypes.number.isRequired,
+  historicPrice: PropTypes.number.isRequired,
+  currentPrice: PropTypes.number.isRequired,
+  coinType: PropTypes.string.isRequired,
+  monthNumber: PropTypes.number.isRequired,
+  yearNumber: PropTypes.number.isRequired,
 };
 
 export default CalculatorResult;

@@ -5,12 +5,10 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import getCurrentPriceSelector from '../selectors/getCurrentPriceSelector';
 import getHistoricalValueSelector from '../selectors/getHistoricalValueSelector';
-import CalculatorMain from './CoinGuiltCalculator/CalculatorMain';
+import CalculatorMain from './Calculator/CalculatorMain';
 import CoinsTableMain from './CoinsTable/CoinsTableMain';
-import CalculatorResult from '../components/CoinGuiltCalculator/CalculatorResult';
+import CalculatorResult from '../components/Calculator/CalculatorResult';
 import Footer from './Footer';
-
-// <CoinsTableMain />
 
 const MainPage = ({
   inputedValue,

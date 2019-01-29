@@ -1,13 +1,14 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const webpack = require('webpack');
+// const webpack = require('webpack');
+const dotenv = require('dotenv');
 
 process.env.NODE_ENV = process.env.NODE_END || 'development';
 
 if (process.env.NODE_ENV === 'test') {
-  require('dotenv').config({ path: '.env.test' });
+  dotenv.config({ path: '.env.test' });
 } else if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config({ path: '.env.development' });
+  dotenv.config({ path: '.env.development' });
 }
 
 module.exports = (env) => {
@@ -26,7 +27,12 @@ module.exports = (env) => {
         loader: 'babel-loader',
         test: /\.js$/,
         exclude: /node_modules/,
-      }, {
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'babel-loader',
+      },
+      {
         test: /\.s?css$/,
         use: CSSExtract.extract({
           use: [
@@ -49,6 +55,9 @@ module.exports = (env) => {
     plugins: [
       CSSExtract,
     ],
+    resolve: {
+      extensions: ['.ts', '.tsx', '.js'],
+    },
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
       contentBase: path.join(__dirname, 'public'),

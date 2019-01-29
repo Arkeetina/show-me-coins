@@ -53,7 +53,7 @@ const mapDispatchToProps = dispatch => ({
 
 Header.propTypes = {
   appMode: PropTypes.string.isRequired,
-  setInputValue: PropTypes.string.isRequired,
+  setInputValue: PropTypes.func.isRequired,
   displayResult: PropTypes.bool.isRequired,
   hideRes: PropTypes.func.isRequired,
   setModeToPrices: PropTypes.func.isRequired,

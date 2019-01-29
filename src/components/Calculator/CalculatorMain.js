@@ -157,14 +157,36 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const HistoricData = {
-  historicData: PropTypes.number,
-  monthPrices: PropTypes.number,
+  historicData: PropTypes.arrayOf(PropTypes.shape({
+    year: PropTypes.number,
+    monthPrices: PropTypes.arrayOf(PropTypes.shape({
+      monthId: PropTypes.number,
+      price: PropTypes.number,
+    })),
+  })).isRequired,
+  monthPrices: PropTypes.arrayOf(PropTypes.shape({
+    monthId: PropTypes.number,
+    price: PropTypes.number,
+  })),
 };
 
 CalculatorMain.propTypes = {
-  coinsHistoricalData: PropTypes.arrayOf(HistoricData).isRequired,
-  selectedCoinData: PropTypes.shape({}).isRequired,
-  selectedYearData: PropTypes.shape({}).isRequired,
+  coinsHistoricalData: PropTypes.arrayOf(PropTypes.shape(HistoricData)).isRequired,
+  selectedCoinData: PropTypes.shape({
+    historicData: PropTypes.arrayOf(PropTypes.shape({
+      year: PropTypes.number,
+      monthPrices: PropTypes.arrayOf(PropTypes.shape({
+        monthId: PropTypes.number,
+        price: PropTypes.number,
+      })),
+    })).isRequired,
+  }).isRequired,
+  selectedYearData: PropTypes.shape({
+    monthPrices: PropTypes.arrayOf(PropTypes.shape({
+      monthId: PropTypes.number,
+      price: PropTypes.number,
+    })),
+  }).isRequired,
   inputedValue: PropTypes.number.isRequired,
   currentMonth: PropTypes.number.isRequired,
   currentYear: PropTypes.number.isRequired,

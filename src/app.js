@@ -7,6 +7,7 @@ import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import LoadingPage from './components/LoadingPage';
 import { startCoinFetch } from './actions/coinsData';
+import * as serviceWorker from './service-worker';
 import './styles/styles.scss';
 
 const store = configureStore();
@@ -21,7 +22,7 @@ let hasRendered = false;
 
 const renderApp = () => {
   if (!hasRendered) {
-    ReactDOM.render(jsx, document.getElementById('app'));
+    ReactDOM.render(jsx, document.getElementById('app')); // eslint-disable-line
     hasRendered = true;
   }
 };
@@ -30,4 +31,6 @@ store.dispatch(startCoinFetch()).then(() => {
   renderApp();
 });
 
-ReactDOM.render(<LoadingPage />, document.getElementById('app'));
+ReactDOM.render(<LoadingPage />, document.getElementById('app')); // eslint-disable-line
+
+serviceWorker.register();

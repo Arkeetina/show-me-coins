@@ -16,10 +16,11 @@ const Footer = () => (
           <ul>
             <li>Janko Prester: janko.prester@gmail.com</li>
             <li>Katerina Bezlepkina: katerinabez@gmail.com</li>
+
           </ul>
         </div>
       </div>
-      <p className="footer-end">Copyright 2018</p>
+      <p className="footer-end">Copyright 2018 <span className="credit-link">App icon made by <a href="https://smashicons.com/">Smashicons</a> from www.flaticon.com</span></p>
     </div>
   </footer>
 );

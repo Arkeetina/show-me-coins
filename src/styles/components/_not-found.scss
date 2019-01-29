@@ -1,0 +1,29 @@
+.not-found-page-container {
+  background-color: $dark-navy;
+  color: $dark-navy;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.not-found-message {
+  text-align: center;
+  font-size: $font-size-medium;
+  border-radius: 3px;
+  padding: $ml-size;
+  background-color: $light-grey;
+}
+
+.not-found-link {
+  color: $blue;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.not-found-link:hover {
+  color: $dark-grey;
+  transition: all 0.2s;
+}
+
