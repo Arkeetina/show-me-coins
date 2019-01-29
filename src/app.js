@@ -7,7 +7,7 @@ import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import LoadingPage from './components/LoadingPage';
 import { startCoinFetch } from './actions/coinsData';
-import * as serviceWorker from './service-worker';
+import * as serviceWorker from '../public/service-worker';
 import './styles/styles.scss';
 
 const store = configureStore();
