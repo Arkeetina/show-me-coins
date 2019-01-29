@@ -12,7 +12,16 @@ import {
   sortByPerChangeDescending,
 } from '../../actions/coinsFilters';
 
-class CoinsListFilter extends Component {
+type CoinsListFilterProps = {
+  sortByPriceUsdAscending: typeof sortByPriceUsdAscending,
+  sortByPriceUsdDescending: typeof sortByPriceUsdDescending,
+  sortByMarketCapAscending: typeof sortByMarketCapAscending,
+  sortByMarketCapDescending: typeof sortByMarketCapDescending,
+  sortByPerChangeAscending: typeof sortByPerChangeAscending,
+  sortByPerChangeDescending: typeof sortByPerChangeDescending,
+}
+
+class CoinsListFilter extends Component<CoinsListFilterProps> {
   // Price
   onSortByPriceUsdAscending = () => {
     this.props.sortByPriceUsdAscending();
@@ -86,13 +95,5 @@ const mapDispatchToProps = dispatch => ({
   sortByPerChangeDescending: () => dispatch(sortByPerChangeDescending()),
 });
 
-CoinsListFilter.propTypes = {
-  sortByPriceUsdAscending: PropTypes.func.isRequired,
-  sortByPriceUsdDescending: PropTypes.func.isRequired,
-  sortByMarketCapAscending: PropTypes.func.isRequired,
-  sortByMarketCapDescending: PropTypes.func.isRequired,
-  sortByPerChangeAscending: PropTypes.func.isRequired,
-  sortByPerChangeDescending: PropTypes.func.isRequired,
-};
 
 export default connect(null, mapDispatchToProps)(CoinsListFilter);

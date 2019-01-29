@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import numeral from 'numeral';
-import PropTypes from 'prop-types';
 
-const CoinItem = ({
+
+interface CointItemProps {
+  name: string;
+  price_usd: string;
+  market_cap_usd: string;
+  percent_change_24h: string;
+}
+
+const CoinItem: FunctionComponent<CointItemProps> = ({
   name,
   price_usd,
   market_cap_usd,
@@ -17,14 +24,6 @@ const CoinItem = ({
       <div className={!isPercentNegative ? 'coin-table-cell green' : 'coin-table-cell red'}>{!isPercentNegative ? '+' : ''}{percent_change_24h}%</div>
     </div>
   );
-};
-
-
-CoinItem.propTypes = {
-  price_usd: PropTypes.string.isRequired,
-  market_cap_usd: PropTypes.string.isRequired,
-  percent_change_24h: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
 };
 
 export default CoinItem;
