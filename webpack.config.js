@@ -30,7 +30,7 @@ module.exports = (env) => {
       },
       {
         test: /\.tsx?$/,
-        loader: 'babel-loader',
+        loader: 'ts-loader',
       },
       {
         test: /\.s?css$/,

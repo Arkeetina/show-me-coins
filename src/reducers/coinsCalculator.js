@@ -5,7 +5,7 @@ import {
   SET_COIN_MONTH,
   SET_COIN_VALUE,
   SHOW_RESULT,
-} from '../actions/types';
+} from '../actions/types.ts';
 import coinsHistoricalData from '../dummy_data/coinsHistoricalData';
 
 const INITIAL_COIN_CALCULATOR_STATE = {

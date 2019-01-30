@@ -1,11 +1,11 @@
-import { FETCH_COIN } from '../actions/types';
+import { SET_COIN_RATES } from '../actions/types.ts';
 
 const INITIAL_STATE = [];
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case FETCH_COIN:
-      return action.rates.data;
+    case SET_COIN_RATES:
+      return [...action.payload];
     default:
       return state;
   }

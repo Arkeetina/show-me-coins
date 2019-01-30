@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react';
-import numeral from 'numeral';
+import * as React from 'react';
+import * as numeral from 'numeral';
 
 
 interface CointItemProps {
@@ -9,7 +9,7 @@ interface CointItemProps {
   percent_change_24h: string;
 }
 
-const CoinItem: FunctionComponent<CointItemProps> = ({
+const CoinItem: React.FunctionComponent<CointItemProps> = ({
   name,
   price_usd,
   market_cap_usd,
@@ -20,7 +20,7 @@ const CoinItem: FunctionComponent<CointItemProps> = ({
     <div className="coin-table-row">
       <div className="coin-table-cell">{name}</div>
       <div className="coin-table-cell"><span className="coin-table-row-text">$ {numeral(+price_usd).format('0.00')}</span></div>
-      <div className="coin-table-cell">$ {numeral(market_cap_usd).format('a')}</div>
+      <div className="coin-table-cell">$ {numeral(+market_cap_usd).format('a')}</div>
       <div className={!isPercentNegative ? 'coin-table-cell green' : 'coin-table-cell red'}>{!isPercentNegative ? '+' : ''}{percent_change_24h}%</div>
     </div>
   );

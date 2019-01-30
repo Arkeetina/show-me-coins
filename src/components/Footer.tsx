@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 
-const Footer = () => (
+const Footer: React.StatelessComponent<{}> = () => (
   <footer className="footer-section">
     <div className="container">
       <div className="footer-container">

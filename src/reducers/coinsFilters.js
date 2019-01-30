@@ -8,7 +8,7 @@ import {
   SORT_BY_PER_CHANGE_ASCENDING,
   SORT_BY_PER_CHANGE_DESCENDING,
   SET_TEXT_FILTER,
-} from '../actions/types';
+} from '../actions/types.ts';
 
 const INITIAL_COIN_FILTER_STATE = {
   sortBy: 'amountAscending',

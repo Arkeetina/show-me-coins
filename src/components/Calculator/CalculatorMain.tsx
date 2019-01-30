@@ -1,6 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import find from 'lodash.find';
 
 import { selectCoinType, selectCoinYear, selectCoinMonth, setDollarValue, showResult } from '../../actions/coinsCalculator';
@@ -10,13 +9,53 @@ import CalculatorCoinTypesList from './CalculatorCoinTypesList';
 import CalculatorYearsList from './CalculatorYearsList';
 import CalculatorMonthsList from './CalculatorMonthsList';
 
-class CalculatorMain extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: '',
-    };
+interface MonthPrices {
+  monthId: number,
+  price: number,
+};
+
+interface HistoricYearItem {
+  year: number,
+  monthPrices: MonthPrices[],
+}
+
+interface HistoricDataItem {
+  historicData: HistoricYearItem,
+  monthPrices: MonthPrices[],
+};
+
+interface CoinsHistoricalData {
+  historicData: HistoricDataItem[],
+  id: string,
+  name: string,
+}
+
+interface CalculatorMainProps {
+  coinsHistoricalData: CoinsHistoricalData[],
+  selectedCoinData: {
+    historicData: HistoricYearItem[],
+  },
+  selectedYearData: {
+    monthPrices: MonthPrices[],
   }
+  inputedValue: number,
+  currentMonth: number,
+  currentYear: number,
+  selectCoinType: typeof selectCoinType,
+  selectCoinYear: typeof selectCoinYear,
+  selectCoinMonth: typeof selectCoinMonth,
+  setDollarValue: typeof setDollarValue,
+  showResult: typeof showResult,
+}
+
+interface CalculatorMainState {
+  error: string,
+}
+
+class CalculatorMain extends React.Component<CalculatorMainProps, CalculatorMainState> {
+  state: Readonly<CalculatorMainState> = {
+    error: ''
+  };
 
   onChangeSelectedCoin = (event) => {
     const coinType = event.currentTarget.value;
@@ -36,8 +75,8 @@ class CalculatorMain extends Component {
 
   onChangeValueInput = (event) => {
     if (this.state.error) this.setState({ error: '' });
-    const inputedDollarValue = parseInt(event.target.value, 10);
-    this.props.setDollarValue(inputedDollarValue);
+    const inputedDollarValue: number = parseInt(event.target.value, 10);
+    this.props.setDollarValue({inputedDollarValue});
   }
 
   onClickShowButton = () => {
@@ -47,11 +86,12 @@ class CalculatorMain extends Component {
     } else {
       this.setState(() => ({ error: '' }));
       this.props.showResult();
-      window.scrollTo({ // eslint-disable-line
-        top: document.body.scrollHeight, // eslint-disable-line
+      const scrollOptions = {
+        top: document.body.scrollHeight,
         bottom: 0,
-        behavior: 'smooth',
-      });
+        // behavior: 'smooth',
+      }
+      window.scrollTo(scrollOptions);
     }
   }
 
@@ -66,7 +106,7 @@ class CalculatorMain extends Component {
       selectedYearData,
     } = this.props;
     return (
-      <Fragment>
+      <React.Fragment>
         <section className="calculator-section">
           <div className="calculator-container">
             <div className="calculator-row input-value-row calculator-text">
@@ -117,7 +157,7 @@ class CalculatorMain extends Component {
             </div>
           </div>
         </section>
-      </Fragment>
+      </React.Fragment>
     );
   }
 }
@@ -148,54 +188,54 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  selectCoinType: coinType => dispatch(selectCoinType(coinType)),
-  selectCoinYear: yearNumber => dispatch(selectCoinYear(yearNumber)),
-  selectCoinMonth: monthNumber => dispatch(selectCoinMonth(monthNumber)),
-  setDollarValue: inputedDollarValue => dispatch(setDollarValue(inputedDollarValue)),
+const mapDispatchToProps = (dispatch: Function) => ({
+  selectCoinType: (coinType: string) => dispatch(selectCoinType({ coinType })),
+  selectCoinYear: (yearNumber: number) => dispatch(selectCoinYear({ yearNumber })),
+  selectCoinMonth: (monthNumber: number) => dispatch(selectCoinMonth({ monthNumber })),
+  setDollarValue: (inputedDollarValue: number) => dispatch(setDollarValue({ inputedDollarValue })),
   showResult: () => dispatch(showResult()),
 });
 
-const HistoricData = {
-  historicData: PropTypes.arrayOf(PropTypes.shape({
-    year: PropTypes.number,
-    monthPrices: PropTypes.arrayOf(PropTypes.shape({
-      monthId: PropTypes.number,
-      price: PropTypes.number,
-    })),
-  })).isRequired,
-  monthPrices: PropTypes.arrayOf(PropTypes.shape({
-    monthId: PropTypes.number,
-    price: PropTypes.number,
-  })),
-};
+// const HistoricData = {
+//   historicData: PropTypes.arrayOf(PropTypes.shape({
+//     year: PropTypes.number,
+//     monthPrices: PropTypes.arrayOf(PropTypes.shape({
+//       monthId: PropTypes.number,
+//       price: PropTypes.number,
+//     })),
+//   })).isRequired,
+//   monthPrices: PropTypes.arrayOf(PropTypes.shape({
+//     monthId: PropTypes.number,
+//     price: PropTypes.number,
+//   })),
+// };
 
-CalculatorMain.propTypes = {
-  coinsHistoricalData: PropTypes.arrayOf(PropTypes.shape(HistoricData)).isRequired,
-  selectedCoinData: PropTypes.shape({
-    historicData: PropTypes.arrayOf(PropTypes.shape({
-      year: PropTypes.number,
-      monthPrices: PropTypes.arrayOf(PropTypes.shape({
-        monthId: PropTypes.number,
-        price: PropTypes.number,
-      })),
-    })).isRequired,
-  }).isRequired,
-  selectedYearData: PropTypes.shape({
-    monthPrices: PropTypes.arrayOf(PropTypes.shape({
-      monthId: PropTypes.number,
-      price: PropTypes.number,
-    })),
-  }).isRequired,
-  inputedValue: PropTypes.number.isRequired,
-  currentMonth: PropTypes.number.isRequired,
-  currentYear: PropTypes.number.isRequired,
-  selectCoinType: PropTypes.func.isRequired,
-  selectCoinYear: PropTypes.func.isRequired,
-  selectCoinMonth: PropTypes.func.isRequired,
-  setDollarValue: PropTypes.func.isRequired,
-  showResult: PropTypes.func.isRequired,
-};
+// CalculatorMain.propTypes = {
+//   coinsHistoricalData: PropTypes.arrayOf(PropTypes.shape(HistoricData)).isRequired,
+//   selectedCoinData: PropTypes.shape({
+//     historicData: PropTypes.arrayOf(PropTypes.shape({
+//       year: PropTypes.number,
+//       monthPrices: PropTypes.arrayOf(PropTypes.shape({
+//         monthId: PropTypes.number,
+//         price: PropTypes.number,
+//       })),
+//     })).isRequired,
+//   }).isRequired,
+//   selectedYearData: PropTypes.shape({
+//     monthPrices: PropTypes.arrayOf(PropTypes.shape({
+//       monthId: PropTypes.number,
+//       price: PropTypes.number,
+//     })),
+//   }).isRequired,
+//   inputedValue: PropTypes.number.isRequired,
+//   currentMonth: PropTypes.number.isRequired,
+//   currentYear: PropTypes.number.isRequired,
+//   selectCoinType: PropTypes.func.isRequired,
+//   selectCoinYear: PropTypes.func.isRequired,
+//   selectCoinMonth: PropTypes.func.isRequired,
+//   setDollarValue: PropTypes.func.isRequired,
+//   showResult: PropTypes.func.isRequired,
+// };
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(CalculatorMain);

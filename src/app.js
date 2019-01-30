@@ -6,7 +6,7 @@ import 'normalize.css/normalize.css';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import LoadingPage from './components/LoadingPage';
-import { startCoinFetch } from './actions/coinsData';
+import { startCoinFetch } from './actions/coinsData.ts';
 import * as serviceWorker from '../public/service-worker';
 import './styles/styles.scss';
 

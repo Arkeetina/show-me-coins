@@ -1,16 +1,27 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import Header from './Header';
-import getCurrentPriceSelector from '../selectors/getCurrentPriceSelector';
-import getHistoricalValueSelector from '../selectors/getHistoricalValueSelector';
+import getCurrentPriceSelector from '../selectors/getCurrentPriceSelector.js';
+import getHistoricalValueSelector from '../selectors/getHistoricalValueSelector.js';
 import CalculatorMain from './Calculator/CalculatorMain';
 import CoinsTableMain from './CoinsTable/CoinsTableMain';
 import CalculatorResult from '../components/Calculator/CalculatorResult';
 import Footer from './Footer';
 
-const MainPage = ({
+interface MainPageProps {
+  inputedValue: number,
+  currentPrice: number,
+  historicPrice: number,
+  selectedCoinData: {
+    name: string,
+  },
+  currentMonth: number,
+  currentYear: number,
+  displayResult: Boolean,
+  appMode: string,
+}
+const MainPage: React.StatelessComponent<MainPageProps> = ({
   inputedValue,
   currentPrice,
   historicPrice,
@@ -75,17 +86,6 @@ const mapStateToProps = (state) => {
     inputedValue,
     displayResult,
   };
-};
-
-MainPage.propTypes = {
-  appMode: PropTypes.string.isRequired,
-  inputedValue: PropTypes.number.isRequired,
-  currentPrice: PropTypes.number.isRequired,
-  historicPrice: PropTypes.number.isRequired,
-  selectedCoinData: PropTypes.shape({}).isRequired,
-  currentMonth: PropTypes.number.isRequired,
-  currentYear: PropTypes.number.isRequired,
-  displayResult: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps)(MainPage);

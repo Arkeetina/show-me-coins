@@ -1,11 +1,20 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import { setAppModeToCalculator, setAppModeToPrices } from '../actions/coinsUI';
 import { hideResult, setDollarValue } from '../actions/coinsCalculator';
 
-const Header = ({
+
+interface HeaderProps {
+  appMode: string,
+  setModeToCalculator: () => void,
+  setModeToPrices: () => void,
+  setInputValue: (value: number) => void,
+  hideRes: () => void,
+  displayResult: () => void,
+}
+
+const Header: React.StatelessComponent<HeaderProps> = ({
   appMode,
   setModeToCalculator,
   setModeToPrices,
@@ -50,14 +59,5 @@ const mapDispatchToProps = dispatch => ({
   setModeToCalculator: () => dispatch(setAppModeToCalculator()),
   setModeToPrices: () => dispatch(setAppModeToPrices()),
 });
-
-Header.propTypes = {
-  appMode: PropTypes.string.isRequired,
-  setInputValue: PropTypes.func.isRequired,
-  displayResult: PropTypes.bool.isRequired,
-  hideRes: PropTypes.func.isRequired,
-  setModeToPrices: PropTypes.func.isRequired,
-  setModeToCalculator: PropTypes.func.isRequired,
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

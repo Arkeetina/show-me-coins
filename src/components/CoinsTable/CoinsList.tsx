@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 
 import CoinsItem from './CoinsItem';
@@ -17,11 +17,11 @@ interface CoinsListProps {
 }
 
 const CoinsList = ({ rates }: CoinsListProps) => (
-  <Fragment>
+  <React.Fragment>
     <div className="coin-table-body">
       {rates && rates.map(rate => (<CoinsItem key={rate.id} {...rate} />)) }
     </div>
-  </Fragment>
+  </React.Fragment>
 );
 
 

@@ -5,7 +5,7 @@ import coinsFilterReducer from '../reducers/coinsFilters';
 import coinsUIReducer from '../reducers/coinsUI';
 import coinsCalculatorReducer from '../reducers/coinsCalculator';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line
 
 export default () => {
   const store = createStore(
@@ -15,7 +15,7 @@ export default () => {
       coinsUI: coinsUIReducer,
       coinsCalculator: coinsCalculatorReducer,
     }),
-    composeEnhancers(applyMiddleware(thunk))
+    composeEnhancers(applyMiddleware(thunk)),
   );
   return store;
 };

@@ -1,5 +1,5 @@
 // coin data
-export const FETCH_COIN = 'FETCH_COIN';
+export const SET_COIN_RATES = 'SET_COIN_RATES';
 
 // coin filters
 export const SORT_BY_NAME_ASCENDING = 'SORT_BY_NAME_ASCENDING';

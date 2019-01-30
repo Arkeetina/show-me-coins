@@ -1,7 +1,7 @@
 import {
   SET_APP_MODE_TO_CALCULATOR,
   SET_APP_MODE_TO_PRICES,
-} from '../actions/types';
+} from '../actions/types.ts';
 
 const INITIAL_COIN_UI_STATE = {
   appMode: 'calculator',

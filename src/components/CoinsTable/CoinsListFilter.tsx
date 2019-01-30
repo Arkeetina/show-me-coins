@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
-import SortButtons from '../common/SortButtons';
+import SortButtons from '../common/SortButtons.js';
 import {
   sortByPriceUsdAscending,
   sortByPriceUsdDescending,
@@ -12,7 +11,7 @@ import {
   sortByPerChangeDescending,
 } from '../../actions/coinsFilters';
 
-type CoinsListFilterProps = {
+interface CoinsListFilterProps {
   sortByPriceUsdAscending: typeof sortByPriceUsdAscending,
   sortByPriceUsdDescending: typeof sortByPriceUsdDescending,
   sortByMarketCapAscending: typeof sortByMarketCapAscending,
@@ -21,7 +20,7 @@ type CoinsListFilterProps = {
   sortByPerChangeDescending: typeof sortByPerChangeDescending,
 }
 
-class CoinsListFilter extends Component<CoinsListFilterProps> {
+class CoinsListFilter extends React.Component<CoinsListFilterProps> {
   // Price
   onSortByPriceUsdAscending = () => {
     this.props.sortByPriceUsdAscending();
@@ -60,24 +59,24 @@ class CoinsListFilter extends Component<CoinsListFilterProps> {
         <div className="coin-table-head-cell">
           <span className="coin-table-head-text">Price</span>
           <SortButtons
-            onUpArrowClick={this.onSortByPriceUsdAscending}
-            onDownArrowClick={this.onSortByPriceUsdDescending}
+            onUpArrowClick={this.onSortByPriceUsdDescending}
+            onDownArrowClick={this.onSortByPriceUsdAscending}
           />
         </div>
 
         <div className="coin-table-head-cell">
           <span className="coin-table-head-text">Market Cap</span>
           <SortButtons
-            onUpArrowClick={this.onSortByMarketCapAscending}
-            onDownArrowClick={this.onSortByMarketCapDescending}
+            onUpArrowClick={this.onSortByMarketCapDescending}
+            onDownArrowClick={this.onSortByMarketCapAscending}
           />
         </div>
 
         <div className="coin-table-head-cell">
           <span className="coin-table-head-text">Change (24h)</span>
           <SortButtons
-            onUpArrowClick={this.onSortByPerChangeAscending}
-            onDownArrowClick={this.onSortByPerChangeDescending}
+            onUpArrowClick={this.onSortByPerChangeDescending}
+            onDownArrowClick={this.onSortByPerChangeAscending}
           />
         </div>
 
