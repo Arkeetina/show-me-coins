@@ -6,7 +6,7 @@ interface HistoricData {
 
 interface CalculatorMonthsListProps {
   monthsData: HistoricData[],
-  onChangeMonth: (event: {
+  onChangeMonth: (currentTarget: {
     target: {
       value: string
     }

@@ -8,14 +8,19 @@ import {
   SORT_BY_PER_CHANGE_ASCENDING,
   SORT_BY_PER_CHANGE_DESCENDING,
   SET_TEXT_FILTER,
-} from '../actions/types.ts';
+} from '../actions/types';
 
 const INITIAL_COIN_FILTER_STATE = {
   sortBy: 'amountAscending',
   text: '',
 };
 
-export default (state = INITIAL_COIN_FILTER_STATE, action) => {
+interface FilterState { 
+  sortBy: string,
+  text: string,
+}
+
+export default (state: FilterState = INITIAL_COIN_FILTER_STATE, action) => {
   switch (action.type) {
     case SORT_BY_NAME_ASCENDING:
       return {

@@ -1,8 +1,8 @@
-import { SET_COIN_RATES } from '../actions/types.ts';
+import { SET_COIN_RATES } from '../actions/types';
 
 const INITIAL_STATE = [];
 
-export default (state = INITIAL_STATE, action) => {
+export default (state: any[] = INITIAL_STATE, action) => {
   switch (action.type) {
     case SET_COIN_RATES:
       return [...action.payload];

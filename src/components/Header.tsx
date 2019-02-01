@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { setAppModeToCalculator, setAppModeToPrices } from '../actions/coinsUI';
-import { hideResult, setDollarValue } from '../actions/coinsCalculator';
+import { hideResult, setInvestedAmount } from '../actions/coinsCalculator';
 
 
 interface HeaderProps {
@@ -55,7 +55,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   hideRes: () => dispatch(hideResult()),
-  setInputValue: value => dispatch(setDollarValue(value)),
+  setInputValue: value => dispatch(setInvestedAmount(value)),
   setModeToCalculator: () => dispatch(setAppModeToCalculator()),
   setModeToPrices: () => dispatch(setAppModeToPrices()),
 });

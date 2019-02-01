@@ -1,13 +1,17 @@
 import {
   SET_APP_MODE_TO_CALCULATOR,
   SET_APP_MODE_TO_PRICES,
-} from '../actions/types.ts';
+} from '../actions/types';
 
 const INITIAL_COIN_UI_STATE = {
   appMode: 'calculator',
 };
 
-export default (state = INITIAL_COIN_UI_STATE, action) => {
+interface UIState {
+  appMode: string,
+}
+
+export default (state: UIState = INITIAL_COIN_UI_STATE, action) => {
   switch (action.type) {
     case SET_APP_MODE_TO_CALCULATOR:
       return {

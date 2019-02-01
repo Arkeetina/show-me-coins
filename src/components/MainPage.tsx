@@ -2,8 +2,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import Header from './Header';
-import getCurrentPriceSelector from '../selectors/getCurrentPriceSelector.js';
-import getHistoricalValueSelector from '../selectors/getHistoricalValueSelector.js';
+import getCurrentPriceSelector from '../selectors/getCurrentPriceSelector';
+import getHistoricalValueSelector from '../selectors/getHistoricalValueSelector';
 import CalculatorMain from './Calculator/CalculatorMain';
 import CoinsTableMain from './CoinsTable/CoinsTableMain';
 import CalculatorResult from '../components/Calculator/CalculatorResult';
@@ -55,8 +55,8 @@ const MainPage: React.StatelessComponent<MainPageProps> = ({
         currentPrice={currentPrice}
         historicPrice={historicPrice}
         coinType={selectedCoinData.name}
-        monthNumber={currentMonth}
-        yearNumber={currentYear}
+        monthNumberObj={currentMonth}
+        yearNumberObj={currentYear}
       />}
     <Footer />
   </div>

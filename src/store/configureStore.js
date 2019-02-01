@@ -1,9 +1,9 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import coinsDataReducer from '../reducers/coinsData';
-import coinsFilterReducer from '../reducers/coinsFilters';
-import coinsUIReducer from '../reducers/coinsUI';
-import coinsCalculatorReducer from '../reducers/coinsCalculator';
+import coinsDataReducer from '../reducers/coinsData.ts';
+import coinsFilterReducer from '../reducers/coinsFilters.ts';
+import coinsUIReducer from '../reducers/coinsUI.ts';
+import coinsCalculatorReducer from '../reducers/coinsCalculator.ts';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line
 

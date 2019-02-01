@@ -4,7 +4,7 @@ import { SET_COIN_RATES } from './types';
 
 const ROOT_URL = 'https://api.coinmarketcap.com/v1/ticker/?convert=USD&limit=10';
 
-type RatesItems = {
+interface RatesItems {
   id: string,
   name: string,
   price_usd: string,

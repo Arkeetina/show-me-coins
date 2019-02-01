@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import find from 'lodash.find';
+import * as find from 'lodash.find';
 
-import { selectCoinType, selectCoinYear, selectCoinMonth, setDollarValue, showResult } from '../../actions/coinsCalculator';
+import { selectCoinType, selectCoinYear, selectCoinMonth, setInvestedAmount, showResult } from '../../actions/coinsCalculator';
 import getCurrentPriceSelector from '../../selectors/getCurrentPriceSelector';
 import getHistoricalValueSelector from '../../selectors/getHistoricalValueSelector';
 import CalculatorCoinTypesList from './CalculatorCoinTypesList';
@@ -44,7 +44,7 @@ interface CalculatorMainProps {
   selectCoinType: typeof selectCoinType,
   selectCoinYear: typeof selectCoinYear,
   selectCoinMonth: typeof selectCoinMonth,
-  setDollarValue: typeof setDollarValue,
+  setInvestedAmount: typeof setInvestedAmount,
   showResult: typeof showResult,
 }
 
@@ -58,25 +58,24 @@ class CalculatorMain extends React.Component<CalculatorMainProps, CalculatorMain
   };
 
   onChangeSelectedCoin = (event) => {
-    const coinType = event.currentTarget.value;
-    this.props.selectCoinType(find(this.props.coinsHistoricalData, { name: coinType }));
+    const coinType = find(this.props.coinsHistoricalData, { name: event.currentTarget.value });
+    this.props.selectCoinType(coinType);
   }
 
   onChangeSelectedYear = (event) => {
-    const yearNumber = parseInt(event.currentTarget.value, 10);
-    this.props.selectCoinYear(find(this.props.selectedCoinData.historicData, { year: yearNumber }));
+    const yearNumberObj = find(this.props.selectedCoinData.historicData, { year: parseInt(event.currentTarget.value, 10)});
+    this.props.selectCoinYear(yearNumberObj);
   }
 
   onChangeSelectedMonth = (event) => {
-    const monthNumber = parseInt(event.currentTarget.value, 10);
-    this.props
-      .selectCoinMonth(find(this.props.selectedYearData.monthPrices, { monthId: monthNumber }));
+    const monthNumberObj = find(this.props.selectedYearData.monthPrices, { monthId: parseInt(event.currentTarget.value, 10)});
+    this.props.selectCoinMonth(monthNumberObj);
   }
 
   onChangeValueInput = (event) => {
     if (this.state.error) this.setState({ error: '' });
-    const inputedDollarValue: number = parseInt(event.target.value, 10);
-    this.props.setDollarValue({inputedDollarValue});
+    const inputedValueNumb = parseInt(event.target.value, 10);
+    this.props.setInvestedAmount({ inputedValue: inputedValueNumb});
   }
 
   onClickShowButton = () => {
@@ -116,7 +115,7 @@ class CalculatorMain extends React.Component<CalculatorMainProps, CalculatorMain
                   type="text"
                   className={this.state.error ? `${inputClass} text-input__error` : inputClass}
                   placeholder="USD $"
-                  id="cryptosetDollarValue"
+                  id="cryptosetInvestedAmount"
                   onChange={this.onChangeValueInput}
                 />
                 {this.state.error && <p className="calculator-error calculator-error-spacing">{this.state.error}</p>}
@@ -189,10 +188,10 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  selectCoinType: (coinType: string) => dispatch(selectCoinType({ coinType })),
-  selectCoinYear: (yearNumber: number) => dispatch(selectCoinYear({ yearNumber })),
-  selectCoinMonth: (monthNumber: number) => dispatch(selectCoinMonth({ monthNumber })),
-  setDollarValue: (inputedDollarValue: number) => dispatch(setDollarValue({ inputedDollarValue })),
+  selectCoinType: (coinType: any) => dispatch(selectCoinType({ coinType })),
+  selectCoinYear: (yearNumberObj: any) => dispatch(selectCoinYear({ yearNumberObj })),
+  selectCoinMonth: (monthNumberObj: any) => dispatch(selectCoinMonth({ monthNumberObj })),
+  setInvestedAmount: (inputedValue: any) => dispatch(setInvestedAmount({ inputedValue })),
   showResult: () => dispatch(showResult()),
 });
 
@@ -233,7 +232,7 @@ const mapDispatchToProps = (dispatch: Function) => ({
 //   selectCoinType: PropTypes.func.isRequired,
 //   selectCoinYear: PropTypes.func.isRequired,
 //   selectCoinMonth: PropTypes.func.isRequired,
-//   setDollarValue: PropTypes.func.isRequired,
+//   setInvestedAmount: PropTypes.func.isRequired,
 //   showResult: PropTypes.func.isRequired,
 // };
 

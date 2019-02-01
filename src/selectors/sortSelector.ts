@@ -1,6 +1,11 @@
-// import { sortByAmountDescending } from "../actions/coinsFilters";
+interface CoinData {
+  name: string,
+  price_usd: string,
+  percent_change_24h: string,
+  market_cap_usd: string,
+}
 
-export default (coins, { text, sortBy }) => coins.filter((coin) => {
+export default (coins: CoinData[], { text, sortBy }: { text: string, sortBy: string }): CoinData[] => coins.filter((coin) => {
   const textMatch = coin.name.toLowerCase().includes(text.toLowerCase());
 
   return textMatch;

@@ -5,7 +5,7 @@ import {
   SET_COIN_MONTH,
   SET_COIN_VALUE,
   SHOW_RESULT,
-} from '../actions/types.ts';
+} from '../actions/types';
 import coinsHistoricalData from '../dummy_data/coinsHistoricalData';
 
 const INITIAL_COIN_CALCULATOR_STATE = {
@@ -17,33 +17,49 @@ const INITIAL_COIN_CALCULATOR_STATE = {
   displayResult: false,
 };
 
-export default (state = INITIAL_COIN_CALCULATOR_STATE, action) => {
+interface MonthPrices {monthId: number, price: number};
+interface HistoricData { year: number, monthPrices: MonthPrices[] }
+
+interface State {
+  coinsHistoricalData,
+  selectedCoinData: {
+    id: string,
+    name: string,
+    historicData: HistoricData[],
+  },
+  selectedYearData: HistoricData,
+  selectedMonthData: MonthPrices,
+  inputedValue: number,
+  displayResult: boolean,
+}
+
+export default (state: State = INITIAL_COIN_CALCULATOR_STATE, action: any) => {
   switch (action.type) {
     case SET_COIN_TYPE:
       return {
         ...state,
-        selectedCoinData: action.payload,
-        selectedYearData: action.payload.historicData[0],
-        selectedMonthData: action.payload.historicData[0].monthPrices[0],
+        selectedCoinData: action.payload.coinType,
+        selectedYearData: action.payload.coinType.historicData[0],
+        selectedMonthData: action.payload.coinType.historicData[0].monthPrices[0],
         displayResult: false,
       };
     case SET_COIN_YEAR:
       return {
         ...state,
-        selectedYearData: action.payload,
-        selectedMonthData: action.payload.monthPrices[0],
+        selectedYearData: action.payload.yearNumberObj,
+        selectedMonthData: action.payload.yearNumberObj.monthPrices[0],
         displayResult: false,
       };
     case SET_COIN_MONTH:
       return {
         ...state,
-        selectedMonthData: action.payload,
+        selectedMonthData: action.payload.monthNumberObj,
         displayResult: false,
       };
     case SET_COIN_VALUE:
       return {
         ...state,
-        inputedValue: action.payload,
+        inputedValue: action.payload.inputedValue.inputedValue,
         displayResult: false,
       };
     case HIDE_RESULT:

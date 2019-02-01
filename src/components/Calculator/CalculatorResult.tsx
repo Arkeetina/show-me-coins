@@ -5,18 +5,18 @@ interface CalculatorResultProps {
   historicPrice: number,
   currentPrice: number,
   coinType: string,
-  monthNumber: number,
-  yearNumber: number,
+  monthNumberObj: number,
+  yearNumberObj: number,
 }
 const CalculatorResult: React.StatelessComponent<CalculatorResultProps> = ({
   inputedValue,
   historicPrice,
   currentPrice,
   coinType,
-  monthNumber,
-  yearNumber,
+  monthNumberObj,
+  yearNumberObj,
 }) => {
-  const date = new Date(yearNumber, monthNumber);
+  const date = new Date(yearNumberObj, monthNumberObj);
   const options = { year: 'numeric', month: 'long' };
   const result = (inputedValue / historicPrice) * currentPrice;
 
