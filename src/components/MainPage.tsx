@@ -35,7 +35,6 @@ const MainPage: React.StatelessComponent<MainPageProps> = ({
     <Header />
     <div className="main-container">
       <div className="container">
-
         {appMode === 'calculator' &&
           <div className="mode-container">
             <h3 className="section-title section-title-spacing">Calculate Historic Crypto Price</h3>

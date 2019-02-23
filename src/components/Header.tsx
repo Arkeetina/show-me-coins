@@ -55,7 +55,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   hideRes: () => dispatch(hideResult()),
-  setInputValue: value => dispatch(setInvestedAmount(value)),
+  setInputValue: value => dispatch(setInvestedAmount({inputedValue: value})),
   setModeToCalculator: () => dispatch(setAppModeToCalculator()),
   setModeToPrices: () => dispatch(setAppModeToPrices()),
 });

@@ -88,7 +88,6 @@ class CalculatorMain extends React.Component<CalculatorMainProps, CalculatorMain
       const scrollOptions = {
         top: document.body.scrollHeight,
         bottom: 0,
-        // behavior: 'smooth',
       }
       window.scrollTo(scrollOptions);
     }
@@ -195,46 +194,6 @@ const mapDispatchToProps = (dispatch: Function) => ({
   showResult: () => dispatch(showResult()),
 });
 
-// const HistoricData = {
-//   historicData: PropTypes.arrayOf(PropTypes.shape({
-//     year: PropTypes.number,
-//     monthPrices: PropTypes.arrayOf(PropTypes.shape({
-//       monthId: PropTypes.number,
-//       price: PropTypes.number,
-//     })),
-//   })).isRequired,
-//   monthPrices: PropTypes.arrayOf(PropTypes.shape({
-//     monthId: PropTypes.number,
-//     price: PropTypes.number,
-//   })),
-// };
-
-// CalculatorMain.propTypes = {
-//   coinsHistoricalData: PropTypes.arrayOf(PropTypes.shape(HistoricData)).isRequired,
-//   selectedCoinData: PropTypes.shape({
-//     historicData: PropTypes.arrayOf(PropTypes.shape({
-//       year: PropTypes.number,
-//       monthPrices: PropTypes.arrayOf(PropTypes.shape({
-//         monthId: PropTypes.number,
-//         price: PropTypes.number,
-//       })),
-//     })).isRequired,
-//   }).isRequired,
-//   selectedYearData: PropTypes.shape({
-//     monthPrices: PropTypes.arrayOf(PropTypes.shape({
-//       monthId: PropTypes.number,
-//       price: PropTypes.number,
-//     })),
-//   }).isRequired,
-//   inputedValue: PropTypes.number.isRequired,
-//   currentMonth: PropTypes.number.isRequired,
-//   currentYear: PropTypes.number.isRequired,
-//   selectCoinType: PropTypes.func.isRequired,
-//   selectCoinYear: PropTypes.func.isRequired,
-//   selectCoinMonth: PropTypes.func.isRequired,
-//   setInvestedAmount: PropTypes.func.isRequired,
-//   showResult: PropTypes.func.isRequired,
-// };
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(CalculatorMain);
